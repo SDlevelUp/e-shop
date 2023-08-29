@@ -24,7 +24,7 @@ function NavItems() {
                         >
                             {item.label}
                         </li>
-                    )) : null}
+                        )) : null}
             </ul>
         </div>
     )

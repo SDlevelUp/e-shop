@@ -1,7 +1,7 @@
 "use client";
-import { adminNavOptions } from "@/utils";
+import { adminNavOptions, navOptions } from "@/utils";
 import { Fragment } from "react";
-
+import { useRouter } from "next/navigation";
 //Admin connecté
 const isAdminView = true;
 
@@ -12,7 +12,7 @@ const user = {
     role: 'admin'
 }
 
-function NavItems() {
+function NavItems({}) {
     return (
         <div className="items-center justify-between w-full md:flex md:w-auto" id="nav-items">
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium  rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-white">

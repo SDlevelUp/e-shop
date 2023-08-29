@@ -23,8 +23,8 @@ function NavItems() {
                             key={item.id}
                         >
                             {item.label}
-                        </li>
-                    )) : null}
+                        </li>)
+                    ) : null}
             </ul>
         </div>
     )

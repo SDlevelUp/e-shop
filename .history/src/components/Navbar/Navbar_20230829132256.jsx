@@ -6,7 +6,7 @@ import { Fragment } from "react";
 const isAdminView = true;
 
 //Utilisateur sur le site
-const isAuthUser = true;
+const isAuthUser = false;
 
 const user = {
     role: 'admin'
@@ -23,8 +23,8 @@ function NavItems() {
                             key={item.id}
                         >
                             {item.label}
-                        </li>
-                    )) : null}
+                        </li>)
+                    ) : null}
             </ul>
         </div>
     )

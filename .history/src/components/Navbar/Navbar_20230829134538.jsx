@@ -1,7 +1,7 @@
 "use client";
-import { adminNavOptions } from "@/utils";
+import { adminNavOptions, navOptions } from "@/utils";
 import { Fragment } from "react";
-
+import { useRouter } from "next/router";
 //Admin connecté
 const isAdminView = true;
 

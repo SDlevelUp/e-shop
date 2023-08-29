@@ -6,7 +6,7 @@ import { Fragment } from "react";
 const isAdminView = true;
 
 //Utilisateur sur le site
-const isAuthUser = true;
+const isAuthUser = false;
 
 const user = {
     role: 'admin'
@@ -15,7 +15,7 @@ const user = {
 function NavItems() {
     return (
         <div className="items-center justify-between w-full md:flex md:w-auto" id="nav-items">
-            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium  rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-white">
+            <ul className="flex flex-col p-4 md:p-0 font-medium border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 {isAdminView
                     ? adminNavOptions.map((item) => (
                         <li
@@ -23,8 +23,8 @@ function NavItems() {
                             key={item.id}
                         >
                             {item.label}
-                        </li>
-                    )) : null}
+                        </li>)
+                    ) : null}
             </ul>
         </div>
     )

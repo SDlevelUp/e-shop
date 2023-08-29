@@ -3,7 +3,7 @@ import { adminNavOptions } from "@/utils";
 import { Fragment } from "react";
 
 //Admin connecté
-const isAdminView = true;
+const isAdminView = falsee;
 
 //Utilisateur sur le site
 const isAuthUser = true;
@@ -23,8 +23,8 @@ function NavItems() {
                             key={item.id}
                         >
                             {item.label}
-                        </li>
-                    )) : null}
+                        </li>)
+                    ) : null}
             </ul>
         </div>
     )

@@ -41,5 +41,9 @@ export const adminNavOptions = [
 ]
 
 
+export const styles ={
+    button: 'mt-1.5 inline+block px-5 py-3 text-xs font-medium uppercase tracking-wide text-white bg-pink-600 rounded shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-pink-200',
+}
+
 
 

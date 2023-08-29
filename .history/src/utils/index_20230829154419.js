@@ -39,7 +39,3 @@ export const adminNavOptions = [
         path: "/panneau-de-configuration/all-produits",
     },
 ]
-
-
-
-

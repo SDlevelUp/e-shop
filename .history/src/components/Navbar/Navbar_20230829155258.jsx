@@ -6,7 +6,7 @@ import { Fragment } from "react";
 const isAdminView = false;
 
 //Utilisateur sur le site
-const isAuthUser = true;
+const isAuthUser = false;
 
 const user = {
     role: 'admin'
@@ -59,16 +59,19 @@ export default function Navbar() {
                     <div className="flex md:order-2 gap-2">
                         {!isAdminView && isAuthUser ? (
                             <Fragment>
-                                <button className="mt-1.5 inline-block rounded-lg bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Compte</button>
-                                <button className="mt-1.5 inline-block rounded-lg bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Panier</button>
+                                <button>Compte</button>
+                                <button>Panier</button>
                             </Fragment>
                         ) : null}
                         {user?.role === 'admin' ? (
-                            isAdminView ? <button className="mt-1.5 inline-block rounded-lg bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Client</button> : <button className="mt-1.5 inline-block rounded-lg bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Admin</button>
+                            isAdminView ? <button>Client</button> : <button>Admin</button>
                         ) : null
 
                         }
-                        {isAuthUser ? <button className="mt-1.5 inline-block rounded-lg bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Déconnexion</button> : <button className="mt-1.5 inline-block rounded-lg bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Connexion</button>}
+                        {isAuthUser ? <button>Déconnexion</button> : <button>Connexion</button>}
+                    </div>
+                    <NavItems />
+                </nav>
                         <button
                             data-collapse-toggle="navbar-sticky"
                             type="button"
@@ -85,15 +88,12 @@ export default function Navbar() {
                                 xmlns="http://www.w3.org/2000/svg"
                             >
                                 <path
-                                    fill-rule="evenodd"
+                                    fillRule="evenodd"
                                     d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                    clip-rule="evenodd"
+                                    clipRule="evenodd"
                                 ></path>
                             </svg>
                         </button>
-                    </div>
-                    <NavItems />
-                </nav>
             </div>
         </>
     );

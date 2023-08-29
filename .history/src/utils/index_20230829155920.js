@@ -41,5 +41,10 @@ export const adminNavOptions = [
 ]
 
 
+export const styles = [{
+
+
+},]
+
 
 

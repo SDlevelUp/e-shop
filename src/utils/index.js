@@ -26,7 +26,6 @@ export const navOptions = [
     },
 ]
 
-
 export const adminNavOptions = [
     {
         id: "adminListing",
@@ -39,7 +38,3 @@ export const adminNavOptions = [
         path: "/panneau-de-configuration/all-produits",
     },
 ]
-
-
-
-

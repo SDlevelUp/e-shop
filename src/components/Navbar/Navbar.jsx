@@ -17,12 +17,12 @@ const user = {
 function NavItems({ isModalView = false }) {
     return (
         <div
-            className={`items-center justify-between w-full md:flex md:w-auto ${isModalView ? "" : "hidden"
+            className={`items-center justify-between w-full md:flex md:w-auto  ${isModalView ? "" : "hidden"
                 }`}
             id="nav-items"
         >
             <ul
-                className={`flex flex-col p-4 md:p-0 mt-4 font-medium  rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-white ${isModalView ? "border-none" : "border border-gray-100"
+                className={`flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-white ${isModalView ? "border-none" : "border border-gray-100"
                     }`}
             >
                 {isAdminView
@@ -48,6 +48,8 @@ function NavItems({ isModalView = false }) {
         </div>
     );
 }
+
+
 export default function Navbar() {
     const { showNavModal, setShowNavModal } = useContext(GlobalContext);
     return (
@@ -63,7 +65,7 @@ export default function Navbar() {
                     </div>
                 </header>
 
-                <nav className="max-w-screen-xl flex items-center justify-between mx-auto p-4 mt-14" >
+                <nav className="max-w-screen-xl flex items-center justify-between mx-auto p-4 mt-14 " >
                     <div className="flex items-center cursor-pointer">
                         <span className="self-center text-2xl font-semibold whitespace-nowrap">
                             E-Shop

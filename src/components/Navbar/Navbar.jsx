@@ -2,7 +2,7 @@
 import { adminNavOptions, navOptions } from "@/utils";
 import { Fragment, useContext } from "react";
 import { GlobalContext } from "@/context";
-import CommonModal from "../CommonModal";
+import CommonModal from "../CommonModal/CommonModal";
 import { useRouter } from "next/navigation";
 //Admin connecté
 const isAdminView = false;
@@ -86,11 +86,11 @@ export default function Navbar() {
                             </Fragment>
                         ) : null}
                         {user?.role === 'admin' ? (
-                            isAdminView ? <button className="mt-1.5 inline-block rounded-lg bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Client</button> : <button className="mt-1.5 inline-block rounded-lg bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Admin</button>
+                            isAdminView ? <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Client</button> : <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Admin</button>
                         ) : null
 
                         }
-                        {isAuthUser ? <button className="mt-1.5 inline-block rounded-lg bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Déconnexion</button> : <button className="mt-1.5 inline-block rounded-lg bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Connexion</button>}
+                        {isAuthUser ? <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Déconnexion</button> : <button className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">Connexion</button>}
                         <button
                             data-collapse-toggle="navbar-sticky"
                             type="button"

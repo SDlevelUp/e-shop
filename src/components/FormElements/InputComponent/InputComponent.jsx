@@ -1,20 +1,13 @@
-
-
-
-
-
-
-
 export default function InputComponent({
     label,
     placeholder,
     onChange,
     value,
-    type
+    type,
 }) {
     return (
         <div className="relative">
-            <p className="font-medium pt-0 pb-0 pr-2 pl-2 -mt-3 mr-0 mb-0 ml-2 text-gray-600">
+            <p className=" pt-0 pr-2 pb-0 pl-2 absolute -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 bg-white">
                 {label}
             </p>
             <input
@@ -22,32 +15,8 @@ export default function InputComponent({
                 type={type || "text"}
                 value={value}
                 onChange={onChange}
-                className="
-                    bg-white 
-                    border-gray-300
-                    placeholder-gray-300 
-                    text-gray-900 
-                    focus:border-black 
-                    focus:outline-none 
-                    border 
-                    rounded-md 
-                    block 
-                    w-full 
-                    p-t-4 
-                    pr-4 
-                    pb-4 
-                    pl-4 
-                    mr-0 
-                    mt-0 
-                    ml-0 
-                    text-base
-                "
+                className="border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mr-0 mt-0 ml-0 text-base block bg-white border-gray-300 rounded-md"
             />
-
-
         </div>
-
-
-
     );
 }

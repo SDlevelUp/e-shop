@@ -3,7 +3,7 @@ import { adminNavOptions, navOptions } from "@/utils";
 import { Fragment, useContext } from "react";
 import { GlobalContext } from "@/context";
 import CommonModal from "../CommonModal/CommonModal";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 //Admin connecté
 const isAdminView = false;
 
@@ -15,6 +15,7 @@ const user = {
 }
 
 function NavItems({ isModalView = false }) {
+
     return (
         <div
             className={`items-center justify-between w-full md:flex md:w-auto  ${isModalView ? "" : "hidden"
@@ -51,13 +52,18 @@ function NavItems({ isModalView = false }) {
 
 
 export default function Navbar() {
+
     const { showNavModal, setShowNavModal } = useContext(GlobalContext);
+    const router = useRouter();
+    const pathName = usePathname();
+
     return (
         <>
             <div className="bg-white fixed z-40 w-full top-0 left-0 border-b border-gray-200 h-46">
                 <header className="bg-black z-50 w-full top-0 left-0 border-b border-gray-200 fixed">
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-4">
-                        <div className="flex items-center cursor-pointer">
+                        <div
+                            className="flex items-center cursor-pointer">
                             <span className="text-white text-sm font-semibold whitespace-nowrap animation inline-block pl-[100%] pr-[2em]">
                                 Profitez de nos offres exclusives jusqu'à -50% sur une sélection d'articles jusqu'au 31 Décembre 2024* !
                             </span>
@@ -66,7 +72,10 @@ export default function Navbar() {
                 </header>
 
                 <nav className="max-w-screen-xl flex items-center justify-between mx-auto p-4 mt-14 " >
-                    <div className="flex items-center cursor-pointer">
+                    <div
+                        onClick={() => router.push("/")}
+                        className="flex items-center cursor-pointer"
+                    >
                         <span className="self-center text-2xl font-semibold whitespace-nowrap">
                             E-Shop
                         </span>
@@ -75,7 +84,11 @@ export default function Navbar() {
                         {!isAdminView && isAuthUser ? (
                             <Fragment>
                                 <button
-                                    className="mt-1.5 inline-block rounded-lg bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white">
+                                    className={
+                                        "mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white"
+                                    }
+                                    onClick={() => router.push('/account')}
+                                >
                                     Mon compte
                                 </button>
 

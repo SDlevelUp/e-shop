@@ -45,12 +45,14 @@ export default function Login() {
                                         font-medium 
                                         uppercase 
                                         tracking-wide
+                                        hover:bg-slate-300
+                                        hover:text-black
                                     "
                                 >
                                     Connexion
                                 </button>
                                 <div className="flex flex-col gap-2">
-                                    <p> Nouveau sur le site ?</p>
+                                    <p className="underline"> Nouveau sur le site ?</p>
                                     <button
                                         className="
                                             inline-flex 
@@ -69,6 +71,8 @@ export default function Login() {
                                             font-medium 
                                             uppercase 
                                             tracking-wide
+                                            hover:bg-slate-300
+                                            hover:text-black
                                         "
                                         onClick={() => router.push('/register')}
                                     >

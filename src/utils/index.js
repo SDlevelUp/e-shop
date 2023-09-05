@@ -26,19 +26,6 @@ export const navOptions = [
     },
 ]
 
-export const adminNavOptions = [
-    {
-        id: "adminListing",
-        label: "Gérer les produits",
-        path: "/panneau-de-configuration/all-produits",
-    },
-    {
-        id: "adminNewProduct",
-        label: "Ajouter un nouveau produit",
-        path: "/panneau-de-configuration/all-produits",
-    },
-]
-
 export const registrationFormControls = [
     {
         id: 'name',
@@ -61,24 +48,6 @@ export const registrationFormControls = [
         label: 'Choisissez un mot de passe',
         componentType: 'input'
     },
-    {
-        id: 'role',
-        type: '',
-        placeholder: '',
-        label: 'Role',
-        componentType: 'select',
-        options: [
-
-            {
-                id: 'admin',
-                label: 'Administrateur'
-            },
-            {
-                id: 'user',
-                label: 'Utilisateur'
-            }
-        ]
-    }
 ]
 
 export const loginFormControls = [

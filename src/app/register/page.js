@@ -46,21 +46,22 @@ export default function Register() {
                                     </button>
                                 ) : (
                                     <div className="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
-                                        {registrationFormControls.map((controlItem) =>
-                                            controlItem.componentType === 'input' ? (
-                                                <InputComponent
-                                                    type={controlItem.type}
-                                                    placeholder={controlItem.placeholder}
-                                                    label={controlItem.label}
-
-                                                />
-                                            ) : controlItem.componentType === 'select' ? (
-                                                <SelectComponent
-                                                    options={controlItem.options}
-                                                    label={controlItem.label}
-                                                />
-                                            ) : null
-                                        )}
+                                        {registrationFormControls.map((controlItem, index) => (
+                                            <div key={`control-${index}`}>
+                                                {controlItem.componentType === 'input' ? (
+                                                    <InputComponent
+                                                        type={controlItem.type}
+                                                        placeholder={controlItem.placeholder}
+                                                        label={controlItem.label}
+                                                    />
+                                                ) : controlItem.componentType === 'select' ? (
+                                                    <SelectComponent
+                                                        options={controlItem.options}
+                                                        label={controlItem.label}
+                                                    />
+                                                ) : null}
+                                            </div>
+                                        ))}
                                         <button
                                             className="
                                                 inline-flex 

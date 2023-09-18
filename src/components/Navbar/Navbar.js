@@ -64,7 +64,7 @@ export default function Navbar() {
                         onClick={() => router.push("/")}
                         className="flex items-center cursor-pointer"
                     >
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap">
+                        <span className="self-center text-2xl text-black font-semibold whitespace-nowrap">
                             E-Shop
                         </span>
                     </div>
@@ -93,6 +93,7 @@ export default function Navbar() {
                                     mt-1.5 
                                     flex 
                                     gap-1
+                                    text-black
                                 "
                         >
                             <PersonOutlineIcon fontSize="medium" />
@@ -113,9 +114,10 @@ export default function Navbar() {
                                     mt-1.5 
                                     flex 
                                     gap-1
+                                    text-black
                                 "
                         >
-                            <ShoppingBagOutlinedIcon fontSize="medium" />
+                            <FavoriteBorderOutlinedIcon fontSize="medium" />
                         </button>
 
                         <button
@@ -133,10 +135,13 @@ export default function Navbar() {
                                     mt-1.5 
                                     flex 
                                     gap-1
+                                    text-black
                                 "
                         >
-                            <FavoriteBorderOutlinedIcon fontSize="medium" />
+                            <ShoppingBagOutlinedIcon fontSize="medium" />
                         </button>
+
+
 
                         <button
                             data-collapse-toggle="navbar-sticky"

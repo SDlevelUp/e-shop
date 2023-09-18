@@ -27,6 +27,10 @@ export default function Login() {
                                         ) : null}
                                     </div>
                                 ))}
+
+                                <div className="text-black flex flex-col underline cursor-pointer">
+                                    Mot de passe oublié?
+                                </div>
                                 <button
                                     className="
                                         inline-flex 
@@ -49,10 +53,14 @@ export default function Login() {
                                         hover:text-black
                                     "
                                 >
-                                    Connexion
+                                    Se connecter
                                 </button>
+                                <div className="flex items-center gap-2">
+                                    <hr className="flex-grow" />
+                                    <span className="text-black">ou</span>
+                                    <hr className="flex-grow" />
+                                </div>
                                 <div className="flex flex-col gap-2">
-                                    <p className="underline"> Nouveau sur le site ?</p>
                                     <button
                                         className="
                                             inline-flex 
@@ -76,7 +84,7 @@ export default function Login() {
                                         "
                                         onClick={() => router.push('/register')}
                                     >
-                                        Créer un compte
+                                        S'inscrire
                                     </button>
                                 </div>
                             </div>

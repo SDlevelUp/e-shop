@@ -17,7 +17,7 @@ export default function Register() {
                                 {
                                     isRegistered
                                         ? "Inscription réussie !"
-                                        : "Créer un compte"
+                                        : "S'inscrire"
                                 }
                             </p>
                             {
@@ -82,7 +82,7 @@ export default function Register() {
                                                 tracking-wide
                                             "
                                         >
-                                            Créer un compte
+                                            S'inscrire
                                         </button>
                                     </div>
                                 )}

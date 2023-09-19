@@ -53,11 +53,11 @@ export const registrationFormControls = [
         type: 'email',
         placeholder: 'Adresse e-mail',
         label: 'Adresse e-mail*',
-        componentType: 'input'
+        componentType: 'input',
     },
     {
         id: 'password',
-        type: 'text',
+        type: 'password',
         placeholder: 'Mot de passe',
         label: 'Mot de passe*',
         componentType: 'input'
@@ -69,14 +69,14 @@ export const loginFormControls = [
         id: 'email',
         type: 'email',
         placeholder: 'Adresse e-mail',
-        label: 'Adresse e-mail',
+        label: 'Adresse e-mail*',
         componentType: 'input'
     },
     {
         id: 'password',
-        type: 'text',
+        type: 'password',
         placeholder: 'Mot de passe',
-        label: 'Mot de passe',
+        label: 'Mot de passe*',
         componentType: 'input'
     }
 ]

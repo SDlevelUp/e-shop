@@ -1,9 +1,9 @@
 "use client";
 import { navOptions } from "@/utils";
-import { Fragment, useContext, useState } from "react";
+import { useContext } from "react";
 import { GlobalContext } from "@/context";
 import CommonModal from "@/components/CommonModal/CommonModal";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
@@ -14,23 +14,15 @@ function NavItems({ isModalView = false, isAuthUser }) {
 
     return (
         <div
-            className={`items-center justify-between w-full md:flex md:w-auto  ${isModalView ? "" : "hidden"}`}
+            className={`items-center justify-between w-full md:flex md:w-auto ${isModalView ? "" : "hidden"}`}
             id="nav-items"
         >
             <ul
                 className={`flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-white ${isModalView ? "border-none" : "border border-gray-100"}`}
             >
-                {isAuthUser ? (
-                    <li
-                        className="cursor-pointer block py-2 pl-3 pr-4 text-gray-900 rounded md:p-0"
-                        onClick={() => router.push('/account')}
-                    >
-                        Mon compte
-                    </li>
-                ) : null}
                 {navOptions.map((item) => (
                     <li
-                        className="cursor-pointer block py-2 pl-3 pr-4 whitespace-nowrap text-gray-900 rounded md:p-0"
+                        className="cursor-pointer block py-2 pl-3 pr-4 text-gray-900 rounded md:p-0"
                         key={item.id}
                         onClick={() => router.push(item.path)}
                     >
@@ -41,9 +33,8 @@ function NavItems({ isModalView = false, isAuthUser }) {
         </div>
     );
 }
-
 export default function Navbar() {
-    const { showNavModal, setShowNavModal, isAuthUser } = useContext(GlobalContext);
+    const { showNavModal, setShowNavModal } = useContext(GlobalContext);
     const router = useRouter();
 
     return (
@@ -68,16 +59,7 @@ export default function Navbar() {
                             E-Shop
                         </span>
                     </div>
-                    <div className="flex md:order-2 gap-2">
-                        {isAuthUser && (
-                            <button
-                                className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium upprcase tracking-wide text-white"
-                                onClick={() => router.push('/account')}
-                            >
-                                Mon compte
-                            </button>
-                        )}
-
+                    <div className="flex md:order-2 gap-3">
                         <button
                             onClick={() => router.push('/login')}
                             className="
@@ -141,8 +123,6 @@ export default function Navbar() {
                             <ShoppingBagOutlinedIcon fontSize="medium" />
                         </button>
 
-
-
                         <button
                             data-collapse-toggle="navbar-sticky"
                             type="button"
@@ -167,14 +147,13 @@ export default function Navbar() {
                             </svg>
                         </button>
                     </div>
-                    <NavItems isAuthUser={isAuthUser} />
+                    <NavItems />
                 </nav>
                 <CommonModal
                     showModalTitle={false}
                     mainContent={
                         <NavItems
                             isModalView={true}
-                            isAuthUser={isAuthUser}
                         />
                     }
                     show={showNavModal}

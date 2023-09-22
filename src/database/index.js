@@ -7,7 +7,7 @@ const configOptions = {
 
 const connectToDB = async () => {
     const connectionUrl = (process.env.MONGODB_URI);
-    console.log("Valeur de MONGODB_URL :", process.env.MONGODB_URI);
+    console.log("Valeur de MONGODB_URI :", process.env.MONGODB_URI);
     console.log("Tentative de connexion à la base de données...");
 
     try {

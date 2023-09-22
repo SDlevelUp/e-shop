@@ -1,10 +1,9 @@
+import { NextResponse } from "next/server";
+import { compare } from "bcryptjs";
 import connectToDB from "@/database";
 import User from "@/models/user";
-import { compare } from "bcryptjs";
 import Joi from "joi";
 import jwt from "jsonwebtoken";
-import { NextResponse } from "next/server";
-import prompt from "prompt-sync";
 
 const schema = Joi.object({
     email: Joi.string().email().required(),
@@ -16,11 +15,7 @@ export const dynamic = "force-dynamic";
 export async function POST(req) {
     await connectToDB();
 
-    const { email } = await req.json();
-
-    // Utilisation de prompt-sync pour obtenir le mot de passe sans affichage
-    const getPassword = prompt({ hideEchoBack: true });
-    const password = getPassword("Mot de passe : ");
+    const { email, password } = await req.json();
 
     const { error } = schema.validate({ email, password });
 
@@ -36,7 +31,7 @@ export async function POST(req) {
         if (!checkUser) {
             return NextResponse.json({
                 success: false,
-                message: "Aucun compte n'a été trouvé avec cet e-mail !",
+                message: "Account not found with this email",
             });
         }
 
@@ -44,7 +39,7 @@ export async function POST(req) {
         if (!checkPassword) {
             return NextResponse.json({
                 success: false,
-                message: "Mot de passe incorrect. Veuillez réessayer !",
+                message: "Incorrect password. Please try again !",
             });
         }
 
@@ -52,7 +47,6 @@ export async function POST(req) {
             {
                 id: checkUser._id,
                 email: checkUser?.email,
-                role: checkUser?.role,
             },
             "default_secret_key",
             { expiresIn: "1d" }
@@ -64,21 +58,20 @@ export async function POST(req) {
                 email: checkUser.email,
                 name: checkUser.name,
                 _id: checkUser._id,
-                role: checkUser.role,
             },
         };
 
         return NextResponse.json({
             success: true,
-            message: "Connexion réussie!",
+            message: "Login successfull!",
             finalData,
         });
     } catch (e) {
-        console.log("Une erreur est survenue lors de votre connexion. Veuillez réessayer plus tard.");
+        console.log("Error while logging In. Please try again");
 
         return NextResponse.json({
             success: false,
-            message: "Quelque chose ne va pas ! Veuillez réessayer plus tard.",
+            message: "Something went wrong ! Please try again later",
         });
     }
-}
+};

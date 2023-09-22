@@ -1,61 +1,68 @@
-import connectToDb from '@/database';
+import connectToDB from "@/database";
 import User from "@/models/user";
+import { hash } from "bcryptjs";
 import Joi from "joi";
-import bcrypt from "bcryptjs"; // Ajout de l'import de bcrypt
 import { NextResponse } from "next/server";
 
 const schema = Joi.object({
-    name: Joi.string().required(),
-    email: Joi.string().email().required(), // Validation de l'email
+    lastName: Joi.string().required(),
+    firstName: Joi.string().required(),
+    email: Joi.string().email().required(),
     password: Joi.string().min(8).required(),
 });
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 export async function POST(req) {
-    await connectToDb();
+    await connectToDB();
+
+    const { lastName, firstName, email, password } = await req.json();
+    //validate the schema
+
+    const { error } = schema.validate({ lastName, firstName, email, password });
+
+    if (error) {
+        console.log(error);
+        return NextResponse.json({
+            success: false,
+            message: error.details[0].message,
+        });
+    }
 
     try {
-        const { name, email, password } = await req.json();
+        //check if the user is exists or not
 
-        const { error } = schema.validate({ name, email, password });
+        const isUserAlreadyExists = await User.findOne({ email });
 
-        if (error) {
+        if (isUserAlreadyExists) {
             return NextResponse.json({
                 success: false,
-                message: error.details[0].message,
-            }, { status: 400 });
-        }
-
-        const isUserAlreadyExist = await User.findOne({ email });
-
-        if (isUserAlreadyExist) {
-            return NextResponse.json({
-                success: false,
-                message: 'Cet email est déjà utilisé! Veuillez en choisir un autre.',
+                message: "User is already exists. Please try with different email.",
             });
         } else {
-            const hashPassword = await bcrypt.hash(password, 12);
+            const hashPassword = await hash(password, 12);
 
-            const newUser = await User.create({
-                name,
+            const newlyCreatedUser = await User.create({
+                firstName,
+                lastName,
                 email,
                 password: hashPassword,
+
             });
 
-            if (newUser) {
+            if (newlyCreatedUser) {
                 return NextResponse.json({
                     success: true,
-                    message: 'Votre compte a été créé avec succès!',
-                }, { status: 201 });
+                    message: "Account created successfully.",
+                });
             }
         }
     } catch (error) {
-        console.error('Error in new user registration:', error);
+        console.log("Error while new user registration. Please try again");
 
         return NextResponse.json({
             success: false,
-            message: 'Oops! Quelque chose s\'est mal passé! Veuillez réessayer plus tard.',
-        }, { status: 500 });
+            message: "Something went wrong ! Please try again later",
+        });
     }
 }

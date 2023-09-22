@@ -28,40 +28,33 @@ export const navOptions = [
 
 export const registrationFormControls = [
     {
-        id: 'lastName',
-        type: 'text',
-        placeholder: 'Nom',
-        label: 'Nom*',
-        componentType: 'input'
+        id: "lastName",
+        type: "text",
+        placeholder: "Votre nom",
+        label: "Nom",
+        componentType: "input",
     },
     {
-        id: 'firstName',
-        type: 'text',
-        placeholder: 'Prénom',
-        label: 'Prénom*',
-        componentType: 'input'
+        id: "firstName",
+        type: "text",
+        placeholder: "Votre prénom",
+        label: "Prénom",
+        componentType: "input",
     },
     {
-        id: 'birthday',
-        type: 'date',
-        placeholder: 'Date de naissance',
-        label: 'Date de naissance',
-        componentType: 'input'
+        id: "email",
+        type: "email",
+        placeholder: "Votre e-mail",
+        label: "E-mail",
+        componentType: "input",
     },
     {
-        id: 'email',
-        type: 'email',
-        placeholder: 'Adresse e-mail',
-        label: 'Adresse e-mail*',
-        componentType: 'input',
+        id: "password",
+        type: "password",
+        placeholder: "Mot de passe",
+        label: "Mot de passe",
+        componentType: "input",
     },
-    {
-        id: 'password',
-        type: 'password',
-        placeholder: 'Mot de passe',
-        label: 'Mot de passe*',
-        componentType: 'input'
-    }
 ]
 
 export const loginFormControls = [

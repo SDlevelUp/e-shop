@@ -1,16 +1,23 @@
 import mongoose from "mongoose";
 
-// Connect to MongoDB
-const connecToDb = async () => {
-    try {
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
-        console.log('MongoDB connected successfully');
-    } catch (error) {
-        console.log('Error while connecting to MongoDB', error);
-    }
-}
+const configOptions = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+};
 
-export default connecToDb;
+const connectToDB = async () => {
+    const connectionUrl = (process.env.MONGODB_URL);
+    console.log("Valeur de MONGODB_URL :", process.env.MONGODB_URL); 
+    console.log("Tentative de connexion à la base de données...");
+
+    try {
+        await mongoose.connect(connectionUrl, configOptions);
+        console.log("Connexion à la base de données réussie !");
+       
+    } catch (error) {
+        console.error("Erreur lors de la connexion à la base de données :", error.message);
+       
+    }
+};
+
+export default connectToDB;

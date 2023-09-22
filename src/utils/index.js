@@ -54,6 +54,7 @@ export const registrationFormControls = [
         placeholder: "Mot de passe",
         label: "Mot de passe",
         componentType: "input",
+        
     },
 ]
 

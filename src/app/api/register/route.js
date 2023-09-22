@@ -37,7 +37,7 @@ export async function POST(req) {
         if (isUserAlreadyExists) {
             return NextResponse.json({
                 success: false,
-                message: "User is already exists. Please try with different email.",
+                message: "Ce nom d'utilisateur existe déja. Veuillez en choisir un autre.",
             });
         } else {
             const hashPassword = await hash(password, 12);
@@ -53,7 +53,7 @@ export async function POST(req) {
             if (newlyCreatedUser) {
                 return NextResponse.json({
                     success: true,
-                    message: "Account created successfully.",
+                    message: "Compte créer avec succès.",
                 });
             }
         }
@@ -62,7 +62,7 @@ export async function POST(req) {
 
         return NextResponse.json({
             success: false,
-            message: "Something went wrong ! Please try again later",
+            message: "Oops ... quelque chose s\est mal passé ! Veuillez réessayer plus tard.",
         });
     }
 }

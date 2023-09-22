@@ -31,7 +31,7 @@ export async function POST(req) {
         if (!checkUser) {
             return NextResponse.json({
                 success: false,
-                message: "Account not found with this email",
+                message: "Cet e-mail n'existe pas ! Veuillez réessayer avec une autre adresse e-mail",
             });
         }
 
@@ -39,7 +39,7 @@ export async function POST(req) {
         if (!checkPassword) {
             return NextResponse.json({
                 success: false,
-                message: "Incorrect password. Please try again !",
+                message: "Mot de passe incorrect ! Veuillez réessayer plus tard",
             });
         }
 
@@ -63,15 +63,15 @@ export async function POST(req) {
 
         return NextResponse.json({
             success: true,
-            message: "Login successfull!",
+            message: "Connexion réussie!",
             finalData,
         });
     } catch (e) {
-        console.log("Error while logging In. Please try again");
+        console.log("Erreur lors de la connexion. Essayez plus tard");
 
         return NextResponse.json({
             success: false,
-            message: "Something went wrong ! Please try again later",
+            message: "Oops ... quelque chose s\est mal passé ! Veuillez réessayer plus tard",
         });
     }
 };

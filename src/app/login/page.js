@@ -38,7 +38,9 @@ export default function Login() {
     }
 
     async function handleLogin() {
+
         const res = await login(formData);
+
         console.log(res);
 
         if (res.success) {
@@ -57,7 +59,6 @@ export default function Login() {
             setIsAuthUser(false);
         }
     }
-
     console.log(isAuthUser, user);
 
     useEffect(() => {

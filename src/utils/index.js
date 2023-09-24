@@ -30,28 +30,28 @@ export const registrationFormControls = [
     {
         id: "lastName",
         type: "text",
-        placeholder: "Votre nom",
+        placeholder: "Votre nom*",
         label: "Nom",
         componentType: "input",
     },
     {
         id: "firstName",
-        type: "text",
-        placeholder: "Votre prénom",
+        type: "text-name",
+        placeholder: "Votre prénom*",
         label: "Prénom",
         componentType: "input",
     },
     {
         id: "email",
         type: "email",
-        placeholder: "Votre e-mail",
+        placeholder: "Votre e-mail*",
         label: "E-mail",
         componentType: "input",
     },
     {
         id: "password",
         type: "password",
-        placeholder: "Mot de passe",
+        placeholder: "Mot de passe*",
         label: "Mot de passe",
         componentType: "input",
         

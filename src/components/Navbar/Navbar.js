@@ -1,14 +1,18 @@
 "use client";
 
 import { navOptions } from "@/utils";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import { GlobalContext } from "@/context";
-import CommonModal from "@/components/CommonModal/CommonModal";
 import { useRouter } from "next/navigation";
+import CommonModal from "@/components/CommonModal/CommonModal";
+import Cookies from "js-cookie";
 
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
+
 
 function NavItems({ isModalView = false }) {
     const router = useRouter();
@@ -33,8 +37,38 @@ function NavItems({ isModalView = false }) {
     );
 }
 export default function Navbar() {
-    const { showNavModal, setShowNavModal } = useContext(GlobalContext);
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    console.log("isLoggedIn:", isLoggedIn);
+
+    const {
+        showNavModal,
+        setShowNavModal,
+        user,
+        setUser,
+        isAuthUser,
+        setIsAuthUser,
+    } = useContext(GlobalContext);
     const router = useRouter();
+
+    async function handleLogout() {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
+        setIsAuthUser(false);
+        setUser(null);
+        Cookies.remove("token");
+        localStorage.clear();
+        router.push("/");
+
+        // Afficher un toast de déconnexion réussie
+        toast.success('Déconnexion réussie !');
+    }
+
+    console.log(user, isAuthUser, 'navbar');
+
+    useEffect(() => {
+        setIsLoggedIn(isAuthUser);
+    }, [isAuthUser]);
 
     return (
         <>
@@ -121,6 +155,29 @@ export default function Navbar() {
                         >
                             <ShoppingBagOutlinedIcon fontSize="medium" />
                         </button>
+
+                        {isLoggedIn && (
+                            <button
+                                onClick={() => handleLogout()}
+                                className="
+                                    rounded-full 
+                                    hover:hover:bg-slate-300 
+                                    hover:text-white
+                                    transition 
+                                    duration-300 
+                                    w-9 
+                                    h-9 
+                                    justify-center 
+                                    items-center 
+                                    mt-1.5 
+                                    flex 
+                                    gap-1
+                                    text-red-500
+                                "
+                            >
+                                <ExitToAppOutlinedIcon fontSize="medium" />
+                            </button>
+                        )}
 
                         <button
                             data-collapse-toggle="navbar-sticky"

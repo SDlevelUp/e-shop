@@ -35,7 +35,49 @@ function NavItems({ isModalView = false }) {
             </ul>
         </div>
     );
+};
+
+function SearchBar() {
+    const [searchQuery, setSearchQuery] = useState('');
+    const router = useRouter();
+
+    const handleSearch = () => {
+        router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
+    };
+
+    return (
+        <div className="relative mt-2">
+            <input
+                type="text"
+                placeholder="Rechercher..."
+                className="px-2 py-1 pr-9 border border-gray-200 rounded-lg focus:outline-none focus:ring focus:ring-gray-300"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button
+                onClick={handleSearch}
+                className="absolute top-1/2 right-2 transform -translate-y-1/2 p-1 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring focus:ring-gray-300"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M21 21l-4.351-4.351M9 17a6 6 0 100-12 6 6 0 000 12z"
+                    />
+                </svg>
+            </button>
+        </div>
+    );
 }
+
+
 export default function Navbar() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -155,7 +197,6 @@ export default function Navbar() {
                         >
                             <ShoppingBagOutlinedIcon fontSize="medium" />
                         </button>
-
                         {isLoggedIn && (
                             <button
                                 onClick={() => handleLogout()}
@@ -179,6 +220,7 @@ export default function Navbar() {
                             </button>
                         )}
 
+                        <SearchBar />
                         <button
                             data-collapse-toggle="navbar-sticky"
                             type="button"

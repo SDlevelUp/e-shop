@@ -22,14 +22,15 @@ function NavItems({ isModalView = false }) {
             className={`items-center justify-between w-full md:flex md:w-auto ${isModalView ? "" : "hidden"}`}
             id="nav-items"
         >
-            <ul className="flex flex-col font-medium md:flex-row md:space-x-4">
+            <ul className="flex flex-col font-medium md:flex-row md:space-x-2 whitespace-nowrap mt-2">
                 {navOptions.map((item) => (
                     <li
-                        className=" cursor-pointer block py-2 pl-3 pr-4 text-gray-900 uppercase md:p-0 hover:underline hover:underline-offset-4 "
+                        className=" text-gray-light text-[0.9rem] tracking-widest font-medium leading-[0.938rem] cursor-pointer block py-2 pl-3 pr-4 uppercase md:p-0 hover:underline hover:underline-offset-4 "
                         key={item.id}
                         onClick={() => router.push(item.path)}
                     >
                         <span className="link-text">{item.label}</span>
+                        
                     </li>
                 ))}
             </ul>

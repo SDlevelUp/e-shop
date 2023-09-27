@@ -3,8 +3,6 @@ import { Lato, Roboto } from 'next/font/google';
 import Navbar from '@/components/Navbar/Navbar';
 import GlobalState from '@/context';
 
-
-
 export const roboto = Roboto({
   weight: ['400'],
   subsets: ['latin'],
@@ -30,10 +28,11 @@ export default function RootLayout({ children }) {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>
-      <body className={`${roboto.variable} ${lato.variable} font-alto`}>        <GlobalState>
-        <Navbar />
-        <main className='flex min-h-screen flex-col mt-[9.5rem]'>{children}</main>
-      </GlobalState>
+      <body className={`${roboto.variable} ${lato.variable} font-lato`}>
+        <GlobalState>
+          <Navbar />
+          <main className='flex min-h-screen flex-col mt-[9.5rem]'>{children}</main>
+        </GlobalState>
       </body>
     </html>
   )

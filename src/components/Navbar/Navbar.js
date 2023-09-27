@@ -22,10 +22,10 @@ function NavItems({ isModalView = false }) {
             className={`items-center justify-between w-full md:flex md:w-auto ${isModalView ? "" : "hidden"}`}
             id="nav-items"
         >
-            <ul className={`flex flex-col p-4 md:p-0 mt-4 font-medium rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0   ${isModalView ? "border-none" : "border border-gray-100"}`}>
+            <ul className="flex flex-col font-medium md:flex-row md:space-x-4">
                 {navOptions.map((item) => (
                     <li
-                        className="cursor-pointer block py-2 pl-3 pr-4 text-gray-900 rounded relative md:p-0 hover:underline hover:underline-offset-4 "
+                        className=" cursor-pointer block py-2 pl-3 pr-4 text-gray-900 uppercase md:p-0 hover:underline hover:underline-offset-4 "
                         key={item.id}
                         onClick={() => router.push(item.path)}
                     >
@@ -46,7 +46,7 @@ function SearchBar() {
     };
 
     return (
-        <div className="relative mt-2">
+        <div className="relative mt-2 flex items-center">
             <input
                 type="text"
                 placeholder="Rechercher..."
@@ -115,7 +115,7 @@ export default function Navbar() {
     return (
         <>
             <div className="bg-gray-50 fixed z-40 w-full top-0 left-0 border-b border-gray-200 h-46">
-                <header className="bg-black z-50 w-full top-0 left-0 border-b border-gray-200 fixed">
+                <header className="bg-black  w-full top-0 left-0 border-b border-gray-200 fixed">
                     <div className="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-4">
                         <div className="flex items-center cursor-pointer">
                             <span className="text-white text-sm font-semibold whitespace-nowrap animation inline-block pl-[100%] pr-[2em]">

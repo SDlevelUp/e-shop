@@ -119,7 +119,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="bg-white fixed w-full z-20 top-0 left-0 border-b-2 border-gray-200 ">
+            <nav className="bg-white fixed w-full z-20 top-0 left-0 shadow-md">
                 <div className="px-4 py- flex justify-center inset-0 mb-12">
                     <SearchBar />
                 </div>
@@ -136,7 +136,7 @@ export default function Navbar() {
                         <button
                             onClick={() => router.push('/login')}
                             className="
-                                    hover:text-slate-300
+                                    hover:text-[#aaa1a1]
                                     transition 
                                     duration-300 
                                     w-9 
@@ -154,7 +154,7 @@ export default function Navbar() {
                         <button
                             onClick={() => router.push('/register')}
                             className="
-                            hover:text-slate-300
+                            hover:text-[#aaa1a1]
                             transition 
                             duration-300 
                             w-9 
@@ -172,7 +172,7 @@ export default function Navbar() {
                         <button
                             onClick={() => router.push('/register')}
                             className="
-                            hover:text-slate-300
+                            hover:text-[#aaa1a1]
                             transition 
                             duration-300 
                             w-9 

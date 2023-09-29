@@ -6,7 +6,7 @@ import GlobalState from '@/context';
 export const roboto = Roboto({
   weight: ['400'],
   subsets: ['latin'],
-  variable: '--font-kaushan',
+  variable: '--font-roboto',
 })
 
 export const lato = Lato({
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
       <body className={`${roboto.variable} ${lato.variable} font-lato`}>
         <GlobalState>
           <Navbar />
-          <main className='flex min-h-screen flex-col mt-[9.5rem]'>{children}</main>
+          <main className='flex min-h-screen flex-col'>{children}</main>
         </GlobalState>
       </body>
     </html>

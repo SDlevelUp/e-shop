@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import InputComponent from "@/components/FormElements/InputComponent/InputComponent"
 import Cookies from "js-cookie";
+import Notification from "@/components/Notification";
 
 const initialFormdata = {
     email: "",
@@ -159,6 +160,7 @@ export default function Login() {
                     </div>
                 </div>
             </div>
+            <Notification />
         </div>
     )
 };

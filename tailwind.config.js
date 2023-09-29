@@ -11,6 +11,10 @@ module.exports = {
         lato: ['var(--font-lato)'],
         roboto: ['var(--font-roboto)'],
       },
+      backgroundImage: {
+        'banner-img': "url('/img/bg_banner.webp')",
+        'bg-black': "url('/img/bg_black.png')",
+      },
     },
   },
   plugins: [],

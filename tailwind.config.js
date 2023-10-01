@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         lato: ['var(--font-lato)'],
         roboto: ['var(--font-roboto)'],
+        montserrat: ['var(--font-montserrat)'],
       },
       backgroundImage: {
         'banner-img': "url('/img/bg_banner.webp')",

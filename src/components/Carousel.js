@@ -1,10 +1,8 @@
 import { useState } from "react";
-
-
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
-function Carrousel({ pictures }) {
+export default function Carrousel({ pictures }) {
     const [current, setCurrent] = useState(0);
 
     if (!pictures || !Array.isArray(pictures) || pictures.length === 0) {
@@ -25,15 +23,15 @@ function Carrousel({ pictures }) {
         <>
             {pictures.map((picture, index) =>
                 current === index && (
-                    <div key={picture} className="carrousel-pictures">
-                        <img src={picture} alt="Rental" />
+                    <div className="carrousel-pictures shadow-lg">
+                        <img src={picture} alt="Produit dans le carousel" />
                         {length > 1 ? (
                             <>
-                                <div className="carrousel-leftArrow bg-slate-200 rounded-full h-8 w-8 items-center flex justify-center" onClick={leftSlide}>
-                                    <NavigateBeforeIcon style={{ fontSize: '2rem' }} />
+                                <div className="carrousel-leftArrow bg-[#aaa1a196] rounded-full h-8 w-8 items-center flex justify-center" onClick={leftSlide}>
+                                    <NavigateBeforeIcon style={{ fontSize: '2.3rem' }} />
                                 </div>
-                                <div className="carrousel-rightArrow bg-slate-200 rounded-full h-8 w-8 items-center flex justify-center" onClick={rightSlide}>
-                                    <NavigateNextIcon style={{ fontSize: '2rem' }} />
+                                <div className="carrousel-rightArrow  bg-[#aaa1a196] rounded-full h-8 w-8 items-center flex justify-center" onClick={rightSlide}>
+                                    <NavigateNextIcon style={{ fontSize: '2.3rem' }} />
                                 </div>
                             </>
                         ) : null}
@@ -42,6 +40,5 @@ function Carrousel({ pictures }) {
             )}
         </>
     );
-}
+};
 
-export default Carrousel;

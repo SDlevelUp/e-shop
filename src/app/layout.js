@@ -1,5 +1,5 @@
 import './globals.css'
-import { Lato, Roboto } from 'next/font/google';
+import { Lato, Roboto, Montserrat } from 'next/font/google';
 import Navbar from '@/components/Navbar/Navbar';
 import GlobalState from '@/context';
 
@@ -13,6 +13,12 @@ export const lato = Lato({
   weight: ['100', '300', '400', '700', '900'],
   subsets: ['latin'],
   variable: '--font-lato',
+})
+
+export const montserrat = Montserrat({
+  weight: ['100', '300', '400', '700', '900'],
+  subsets: ['latin'],
+  variable: '--font-montserrat',
 })
 export const metadata = {
   title: 'E-Shop, votre boutique en ligne',
@@ -28,7 +34,7 @@ export default function RootLayout({ children }) {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>
-      <body className={`${roboto.variable} ${lato.variable} font-lato`}>
+      <body className={`${roboto.variable} ${lato.variable} ${montserrat.variable} font-lato`}>
         <GlobalState>
           <Navbar />
           <main className='flex min-h-screen flex-col'>{children}</main>

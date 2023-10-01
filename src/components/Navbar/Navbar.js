@@ -129,7 +129,7 @@ export default function Navbar() {
                         className="flex items-center cursor-pointer"
                     >
                         <span className="self-center text-2xl font-semibold whitespace-nowrap">
-                            Abaya
+                            Abaya Shop
                         </span>
                     </div>
                     <div className="flex md:order-2 gap-2">

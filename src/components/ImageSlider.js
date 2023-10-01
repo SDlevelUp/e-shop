@@ -37,13 +37,13 @@ export default function ImageSlider() {
     ];
 
     return (
-        <div className="flex flex-col items-center justify-center mt-[43px] 2xl:mt-[50px] h-screen">
+        <div className="flex flex-col items-center justify-center mt-0 lg:mt-[5rem] h-screen">
             {images.map((image, index) => (
                 <motion.img
                     key={index}
                     src={image}
                     alt={image}
-                    className="shadow-lg w-[40%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[25%] 3xl:w-[30%] h-auto"
+                    className="shadow-md w-[40%] md:w-[70%] lg:w-[28%] h-auto"
                     initial="center"
                     animate={positions[positionIndexes[index]]}
                     variants={imageVariants}
@@ -51,12 +51,13 @@ export default function ImageSlider() {
                     style={{ position: 'absolute' }}
                 />
             ))}
-            <button
-                onClick={handleNext}
-                className="text-white rounded-full bg-black w-10 h-10 mt-[350px] lg:mt-[500px] xl:mt-[600px] 2xl:mt-[700px] 3xl:mt-[800px] md:mt-[400px] sm:mt-[400px]"
-            >
-                <NavigateNextOutlinedIcon />
-            </button>
+            <div className="absolute bottom-[1.3rem] lg:bottom-[0.9rem]">
+                <button
+                    onClick={handleNext}
+                    className="text-white rounded-full bg-black w-10 h-10">
+                    <NavigateNextOutlinedIcon />
+                </button>
+            </div>
         </div>
     )
 };

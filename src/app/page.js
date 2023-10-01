@@ -9,13 +9,12 @@ export default function Home() {
   const { isAuthUser } = useContext(GlobalContext)
   console.log(isAuthUser);
   return (
-    <>
-      <section data-section id="section-1" className="bg-banner-img w-full h-screen flex justify-center items-center">
-        <div className="flex justify-center items-center">
-
+<>
+      <header data-header id="header" className="bg-banner-img w-full h-screen flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center text-center">
           <ImageSlider />
         </div>
-      </section>
-    </>
+      </header>
+      </>
   );
 };

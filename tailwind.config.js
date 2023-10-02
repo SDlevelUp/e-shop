@@ -14,7 +14,7 @@ module.exports = {
       },
       backgroundImage: {
         'banner-img': "url('/img/bg_banner.webp')",
-        'bg-black': "url('/img/bg_black.png')",
+        'banner-header': "url('/img/bg-2.jpg')",
       },
     },
   },

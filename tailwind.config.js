@@ -14,7 +14,8 @@ module.exports = {
       },
       backgroundImage: {
         'banner-img': "url('/img/bg_banner.webp')",
-        'banner-header': "url('/img/bg-2.jpg')",
+        'banner-header': "url('/img/abaya-women.webp')",
+        'banner-mobile': "url('/img/banner-mob.jpg')",
       },
     },
   },

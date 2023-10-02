@@ -22,7 +22,7 @@ function NavItems({ isModalView = false }) {
             className={`items-center justify-between w-full md:flex md:w-auto ${isModalView ? "" : "hidden"}`}
             id="nav-items"
         >
-            <ul className="flex flex-col font-medium md:flex-row md:space-x-4 whitespace-nowrap mt-2">
+            <ul className="flex flex-col font-medium md:flex-row md:space-x-2 whitespace-nowrap mt-2">
                 {navOptions.map((item) => (
                     <li
                         className=" text-gray-light text-[0.95rem] tracking-widest font-medium leading-[0.938rem] cursor-pointer block py-2 pl-3 pr-4 uppercase md:p-0 hover:underline hover:underline-offset-4 "
@@ -47,7 +47,7 @@ function SearchBar() {
     };
 
     return (
-        <div className="absolute mt-4">
+        <div className="absolute top-5">
             <input
                 type="text"
                 placeholder="Rechercher..."
@@ -120,10 +120,10 @@ export default function Navbar() {
     return (
         <>
             <nav className="bg-white fixed w-full z-20 top-0 left-0 shadow-md">
-                <div className="px-4 flex justify-center inset-0 mb-12">
+                <div className="flex justify-center inset-0 mb-12">
                     <SearchBar />
                 </div>
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
                     <div
                         onClick={() => router.push("/")}
                         className="flex items-center cursor-pointer"
@@ -132,7 +132,7 @@ export default function Navbar() {
                             Abaya Shop
                         </span>
                     </div>
-                    <div className="flex md:order-2 gap-2">
+                    <div className="flex md:order-2">
                         <button
                             onClick={() => router.push('/login')}
                             className="
@@ -143,7 +143,6 @@ export default function Navbar() {
                                     h-9 
                                     justify-center 
                                     items-center 
-                                    mt-1
                                     flex 
                                     text-black
                                 "
@@ -161,7 +160,6 @@ export default function Navbar() {
                             h-9 
                             justify-center 
                             items-center 
-                            mt-1
                             flex 
                             text-black
                         "
@@ -179,7 +177,6 @@ export default function Navbar() {
                             h-9 
                             justify-center 
                             items-center 
-                            mt-1
                             flex 
                             text-black
                         "
@@ -197,7 +194,6 @@ export default function Navbar() {
                                     h-9 
                                     justify-center 
                                     items-center 
-                                    mt-1.5 
                                     flex 
                                 "
                             >
@@ -208,7 +204,7 @@ export default function Navbar() {
                         <button
                             data-collapse-toggle="navbar-sticky"
                             type="button"
-                            className="inline-flex items-center p-2 text-sm text-black md:hidden hover:bg-gray-100 mt-0.5"
+                            className="inline-flex items-center text-sm text-black lg:hidden hover:bg-gray-100 md:flex"
                             aria-controls="navbar-sticky"
                             aria-expanded="false"
                             onClick={() => setShowNavModal(true)}

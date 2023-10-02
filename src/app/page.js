@@ -4,11 +4,15 @@ import { useContext } from "react";
 import { GlobalContext } from "@/context";
 import Carousel from "@/components/Carousel";
 
+import KeyboardDoubleArrowDownOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowDownOutlined';
+
 const images = [
   "/img/abaya-women.webp",
   "/img/qamis-men.webp",
   "/img/abaya-women2.webp",
-  "/img/abaya-women2.webp",
+  "/img/sarwel-men.webp",
+  "/img/qamis-enfant.webp",
+  "/img/sarwel-men.webp",
 ];
 
 export default function Home() {
@@ -16,9 +20,9 @@ export default function Home() {
   console.log(isAuthUser);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-banner-img w-full h-screen p-20">
+    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-banner-img">
       <header data-header id="header">
-        <div className="grid max-w-screen-xl px-4 py-20 mx-suto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <div className="grid max-w-screen-xl px-4 py-20 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="max-w-2xl mb-4 text-4xl font-montserrat tracking-tight leading-none md:text-5xl xl:text-6xl">
               Nouvelle Collection
@@ -28,17 +32,21 @@ export default function Home() {
             </p>
             <button
               type="button"
-              className="mt-1 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+              className="mt-1 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white hover:bg-gray-500"
             >
               Voir la collection
             </button>
           </div>
           <div className="lg:mt-0 lg:col-span-5 lg:flex">
             <Carousel pictures={images} />
-
           </div>
         </div>
+        <button
+          onClick={() => { }}
+          className="inline-block animate-bounce rounded-full p-4 text-black absolute left-1/2 translate-x-[-50%] bottom-20 ">
+          <KeyboardDoubleArrowDownOutlinedIcon className='text-4xl' />
+        </button>
       </header>
-    </main >
+    </main>
   );
 };

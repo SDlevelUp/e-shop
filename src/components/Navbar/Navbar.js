@@ -22,7 +22,7 @@ function NavItems({ isModalView = false }) {
             className={`items-center justify-between w-full md:flex md:w-auto ${isModalView ? "" : "hidden"}`}
             id="nav-items"
         >
-            <ul className="flex flex-col font-medium md:flex-row md:space-x-2 whitespace-nowrap mt-2">
+            <ul className="flex flex-col font-medium md:flex-row md:space-x-4 whitespace-nowrap mt-2">
                 {navOptions.map((item) => (
                     <li
                         className=" text-gray-light text-[0.95rem] tracking-widest font-medium leading-[0.938rem] cursor-pointer block py-2 pl-3 pr-4 uppercase md:p-0 hover:underline hover:underline-offset-4 "
@@ -120,7 +120,7 @@ export default function Navbar() {
     return (
         <>
             <nav className="bg-white fixed w-full z-20 top-0 left-0 shadow-md">
-                <div className="px-4 py- flex justify-center inset-0 mb-12">
+                <div className="px-4 flex justify-center inset-0 mb-12">
                     <SearchBar />
                 </div>
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

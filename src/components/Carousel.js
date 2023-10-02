@@ -23,9 +23,9 @@ export default function Carrousel({ pictures }) {
         <>
             {pictures.map((picture, index) =>
                 current === index && (
-                    <div className="carrousel-pictures shadow-lg">
+                    <div key={index} className="carrousel-pictures shadow-lg flex">
                         <img src={picture} alt="Produit dans le carousel" />
-                        {length > 1 ? (
+                        {length > 1 && (
                             <>
                                 <div className="carrousel-leftArrow bg-[#aaa1a196] rounded-full h-8 w-8 items-center flex justify-center" onClick={leftSlide}>
                                     <NavigateBeforeIcon style={{ fontSize: '2.3rem' }} />
@@ -34,7 +34,7 @@ export default function Carrousel({ pictures }) {
                                     <NavigateNextIcon style={{ fontSize: '2.3rem' }} />
                                 </div>
                             </>
-                        ) : null}
+                        )}
                     </div>
                 )
             )}

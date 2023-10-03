@@ -128,7 +128,7 @@ export default function Navbar() {
                         onClick={() => router.push("/")}
                         className="flex items-center cursor-pointer"
                     >
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap">
+                        <span className="self-center text-2xl font-semibold font-roboto whitespace-nowrap">
                             Abaya Shop
                         </span>
                     </div>

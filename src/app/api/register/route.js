@@ -14,55 +14,58 @@ const schema = Joi.object({
 export const dynamic = "force-dynamic";
 
 export async function POST(req) {
-    await connectToDB();
-
-    const { lastName, firstName, email, password } = await req.json();
-    //validate the schema
-
-    const { error } = schema.validate({ lastName, firstName, email, password });
-
-    if (error) {
-        console.log(error);
-        return NextResponse.json({
-            success: false,
-            message: error.details[0].message,
-        });
-    }
-
     try {
-        //check if the user is exists or not
+        await connectToDB();
+
+        const { lastName, firstName, email, password } = await req.json();
+        // Valider le schéma
+
+        const { error } = schema.validate({ lastName, firstName, email, password });
+
+        if (error) {
+            return NextResponse.json({
+                success: false,
+                message: error.details[0].message,
+            }, { status: 400 });
+        }
+
+        // Vérifier si l'utilisateur existe déjà
 
         const isUserAlreadyExists = await User.findOne({ email });
 
         if (isUserAlreadyExists) {
             return NextResponse.json({
                 success: false,
-                message: "Ce nom d'utilisateur existe déja. Veuillez en choisir un autre.",
+                message: "Ce nom d'utilisateur existe déjà. Veuillez en choisir un autre.",
+            }, { status: 401 });
+        }
+
+        const hashPassword = await hash(password, 12);
+
+        const newlyCreatedUser = await User.create({
+            firstName,
+            lastName,
+            email,
+            password: hashPassword,
+        });
+
+        if (newlyCreatedUser) {
+            return NextResponse.json({
+                success: true,
+                message: "Compte créé avec succès.",
             });
         } else {
-            const hashPassword = await hash(password, 12);
-
-            const newlyCreatedUser = await User.create({
-                firstName,
-                lastName,
-                email,
-                password: hashPassword,
-
-            });
-
-            if (newlyCreatedUser) {
-                return NextResponse.json({
-                    success: true,
-                    message: "Compte créer avec succès.",
-                });
-            }
+            return NextResponse.json({
+                success: false,
+                message: "Échec de la création du compte.",
+            }, { status: 500 });
         }
     } catch (error) {
-        console.log("Error while new user registration. Please try again");
+        console.error("Erreur lors de la création de l'utilisateur : ", error);
 
         return NextResponse.json({
             success: false,
-            message: "Oops ... quelque chose s\est mal passé ! Veuillez réessayer plus tard.",
-        });
+            message: "Oops... quelque chose s'est mal passé ! Veuillez réessayer plus tard.",
+        }, { status: 500 });
     }
 }

@@ -30,29 +30,29 @@ export const registrationFormControls = [
     {
         id: "lastName",
         type: "text",
-        placeholder: "Votre nom*",
-        label: "Nom",
+        placeholder: "Votre nom",
+        label: "Nom*",
         componentType: "input",
     },
     {
         id: "firstName",
         type: "text-name",
-        placeholder: "Votre prénom*",
-        label: "Prénom",
+        placeholder: "Votre prénom",
+        label: "Prénom*",
         componentType: "input",
     },
     {
         id: "email",
         type: "email",
-        placeholder: "Votre e-mail*",
-        label: "E-mail",
+        placeholder: "Votre adresse e-mail",
+        label: "Votre adresse e-mail*",
         componentType: "input",
     },
     {
         id: "password",
         type: "password",
-        placeholder: "Mot de passe*",
-        label: "Mot de passe",
+        placeholder: "Choisissez un mot de passe",
+        label: "Mot de passe*",
         componentType: "input",
         
     },
@@ -62,8 +62,8 @@ export const loginFormControls = [
     {
         id: 'email',
         type: 'email',
-        placeholder: 'Adresse e-mail',
-        label: 'Adresse e-mail*',
+        placeholder: 'Votre adresse e-maill',
+        label: 'Votre adresse e-maill*',
         componentType: 'input'
     },
     {

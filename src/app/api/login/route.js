@@ -23,7 +23,7 @@ export async function POST(req) {
         return NextResponse.json({
             success: false,
             message: error.details[0].message,
-        });
+        }, { status: 400 });
     }
 
     try {
@@ -32,15 +32,15 @@ export async function POST(req) {
             return NextResponse.json({
                 success: false,
                 message: "Cet e-mail n'existe pas ! Veuillez réessayer avec une autre adresse e-mail",
-            });
+            }, { status: 401 });
         }
 
         const checkPassword = await compare(password, checkUser.password);
         if (!checkPassword) {
             return NextResponse.json({
                 success: false,
-                message: "Mot de passe incorrect ! Veuillez réessayer plus tard",
-            });
+                message: "Mot de passe incorrect ! Veuillez réessayer plus tard",
+            }, { status: 401 });
         }
 
         const token = jwt.sign(
@@ -71,7 +71,7 @@ export async function POST(req) {
 
         return NextResponse.json({
             success: false,
-            message: "Oops ... quelque chose s\est mal passé ! Veuillez réessayer plus tard",
-        });
+            message: "Oops ... quelque chose s'est mal passé ! Veuillez réessayer plus tard",
+        }, { status: 500 });
     }
 };

@@ -7,16 +7,13 @@ import { GlobalContext } from "@/context";
 import { useRouter } from "next/navigation";
 import CommonModal from "@/components/CommonModal/CommonModal";
 import Cookies from "js-cookie";
-
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 
-
 function NavItems({ isModalView = false }) {
     const router = useRouter();
-
     return (
         <div
             className={`items-center justify-between w-full md:flex md:w-auto ${isModalView ? "" : "hidden"}`}
@@ -30,7 +27,6 @@ function NavItems({ isModalView = false }) {
                         onClick={() => router.push(item.path)}
                     >
                         <span className="link-text">{item.label}</span>
-
                     </li>
                 ))}
             </ul>
@@ -129,7 +125,7 @@ export default function Navbar() {
                         className="flex items-center cursor-pointer"
                     >
                         <span className="self-center text-2xl font-semibold font-roboto whitespace-nowrap">
-                            Abaya Shop
+                            Abayaty
                         </span>
                     </div>
                     <div className="flex md:order-2">

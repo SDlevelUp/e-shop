@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext, useState, useEffect } from "react";
-import { login } from "@/services/login/index"
+import { login } from "@/services/login"
 import { loginFormControls } from "@/utils";
 import { GlobalContext } from "@/context";
 import { useRouter } from "next/navigation";

@@ -96,22 +96,14 @@ export default function Home() {
               ))}
             </Carousel>
           </div>
-
-
-
-
-
         </div>
-
       </header>
 
       {/* Presentation section */}
 
       <section
-        className="bg-white"
         data-section
         id="first-section">
-
         <div className="">
           <div className="m-auto w-full my-10 text-center max-w-screen-xl">
             <div className="break-words m-auto w-calc-100-minus-8rem font-serif text-2xl">
@@ -158,6 +150,15 @@ export default function Home() {
         </div>
       </section>
 
+
+      <section
+        className=" bg-orange-100"
+        data-section
+        id="second-section"
+      >
+        <div className="bg-red-400 mt-10">Third section</div>
+
+      </section>
     </>
   );
 };

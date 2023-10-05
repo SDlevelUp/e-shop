@@ -37,29 +37,28 @@ export default function Home() {
   ];
 
   const customCarouselStyles = {
-    ".carousel .thumbs-wrapper": {
-      marginTop: "20rem", // Ajustez la marge selon vos besoins
+    ".carousel ": {
+      marginTop: "20rem", 
     },
   };
 
   return (
-    <>
+    <> 
       {/* Header and banner */}
       <header
         data-header
         id="header"
         className={classNames(
-          "flex min-h-screen flex-col items-center justify-center p-24 lg:mt-0 lg:col-span-5 lg:flex bg-no-repeat bg-cover w-full",
+          "relative flex min-h-screen justify-center items-center lg:mt-0 lg:col-span-5 lg:flex bg-no-repeat bg-cover w-full",
           {
             "bg-banner-header": !isMobile,
             "bg-banner-mobile": isMobile,
           }
         )}
         style={{ backgroundSize: isMobile ? "w-fit" : "auto cover" }}
-
       >
-        <div className="grid max-w-screen-xl px-4 py-[5rem] mx-auto lg:gap-8 lg:grid-cols-12">
-          <div className="mr-0 place-self-center lg:col-span-6">
+        <div className="grid max-w-screen-xl px-4 py-[5rem] mx-auto lg:gap-8 lg:py-16 lg:grid-cols-12">
+          <div className="mr-0 place-self-center lg:col-span-7">
             <h1 className="max-w-2xl mb-4 text-4xl font-montserrat tracking-tight leading-none md:text-5xl xl:text-6xl">
               Nouvelle Collection
             </h1>
@@ -68,13 +67,12 @@ export default function Home() {
             </p>
             <button
               type="button"
-              className="mt-1 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white hover:bg-gray-500"
+              className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white  hover:bg-gray-500"
             >
               Voir la collection
             </button>
           </div>
-
-          <div className="lg:mt-0 lg:col-span-6 lg:flex md:w-[80%] relative">
+          <div className="lg:mt-0 lg:col-span-5 lg:flex relative">
             <div className="xl:w-full lg:h-full bg-black opacity-10 pb-[10%] top-[65%] left-[65%] absolute transform -translate-x-1/2 -translate-y-1/2 -mt-12 -ml-12 shadow-md"></div>
             <Carousel
               showArrows={false}
@@ -100,7 +98,6 @@ export default function Home() {
       </header>
 
       {/* Presentation section */}
-
       <section
         data-section
         id="first-section">

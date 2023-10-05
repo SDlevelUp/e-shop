@@ -1,6 +1,8 @@
 import './globals.css'
 import { Lato, Roboto, Montserrat } from 'next/font/google';
 import Navbar from '@/components/Navbar/Navbar';
+import Footer from '@/components/Foter/Footer';
+
 import GlobalState from '@/context';
 
 export const roboto = Roboto({
@@ -37,7 +39,8 @@ export default function RootLayout({ children }) {
       <body className={`${roboto.variable} ${lato.variable} ${montserrat.variable} font-montserrat`}>
         <GlobalState>
           <Navbar />
-          <main className='flex min-h-screen flex-col'>{children}</main>
+          <main className='flex min-h-screen flex-col md:mt-28 xl:mt-0'>{children}</main>
+          <Footer />
         </GlobalState>
       </body>
     </html>

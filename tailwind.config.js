@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'tablet': '768px', 
+      },
       fontFamily: {
         lato: ['var(--font-lato)'],
         roboto: ['var(--font-roboto)'],

@@ -38,24 +38,18 @@ export default function Home() {
 
   const customCarouselStyles = {
     ".carousel ": {
-      marginTop: "20rem", 
+      marginTop: "20rem",
     },
   };
 
   return (
-    <> 
+    <>
       {/* Header and banner */}
       <header
         data-header
         id="header"
-        className={classNames(
-          "relative flex min-h-screen justify-center items-center lg:mt-0 lg:col-span-5 lg:flex bg-no-repeat bg-cover w-full",
-          {
-            "bg-banner-header": !isMobile,
-            "bg-banner-mobile": isMobile,
-          }
-        )}
-        style={{ backgroundSize: isMobile ? "w-fit" : "auto cover" }}
+        className="relative flex justify-center items-center lg:mt-0 lg:col-span-5 lg:flex bg-[#aaa1a196] p-20"
+          
       >
         <div className="grid max-w-screen-xl px-4 py-[5rem] mx-auto lg:gap-8 lg:py-16 lg:grid-cols-12">
           <div className="mr-0 place-self-center lg:col-span-7">

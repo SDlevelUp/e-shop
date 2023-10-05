@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
       <body className={`${roboto.variable} ${lato.variable} ${montserrat.variable} font-montserrat`}>
         <GlobalState>
           <Navbar />
-          <main className='flex min-h-screen flex-col md:mt-28 xl:mt-0'>{children}</main>
+          <main className='flex min-h-screen flex-col md:mt-16 xl:mt-16 lg:mt-16'>{children}</main>
           <Footer />
         </GlobalState>
       </body>

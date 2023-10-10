@@ -2,7 +2,6 @@ import './globals.css'
 import { Lato, Roboto, Montserrat } from 'next/font/google';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Foter/Footer';
-
 import GlobalState from '@/context';
 
 export const roboto = Roboto({

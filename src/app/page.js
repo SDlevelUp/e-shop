@@ -2,12 +2,15 @@
 
 import { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "@/context";
-import classNames from "classnames";
+
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import "react-responsive-carousel/lib/styles/carousel.css";
 import { Carousel } from "react-responsive-carousel";
 import Promotions from "../data/promotions.json";
 
+
+
+import ProductsHomePage from "../components/ProductsHomePage/ProductsHomePage.js";
 export default function Home() {
   const { isAuthUser } = useContext(GlobalContext)
   console.log(isAuthUser);
@@ -48,22 +51,22 @@ export default function Home() {
       <header
         data-header
         id="header"
-        className="relative flex justify-center items-center lg:mt-0 lg:col-span-5 lg:flex bg-[#aaa1a196] p-20"
-          
-      >
+        className="min-h-screen relative flex justify-center items-center lg:mt-0 lg:col-span-5 lg:flex bg-[#d8cbcba5] p-20 bg-banner-texture bg-no-repeat bg-cover">
         <div className="grid max-w-screen-xl px-4 py-[5rem] mx-auto lg:gap-8 lg:py-16 lg:grid-cols-12">
-          <div className="mr-0 place-self-center lg:col-span-7">
+          <div className="mr-0 place-self-center lg:col-span-7" style={{ position: 'relative', paddingLeft: '1.5rem', paddingTop: '1.5rem' }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 20 20" style={{ position: 'absolute', left: '0', top: '0' }}>
+              <line x1="0" y1="0" x2="0" y2="120" stroke="white" strokeWidth="1" />
+              <line x1="0" y1="0" x2="120" y2="0" stroke="white" strokeWidth="1" />
+            </svg>
             <h1 className="max-w-2xl mb-4 text-4xl font-montserrat tracking-tight leading-none md:text-5xl xl:text-6xl">
-              Nouvelle Collection
+              Nouvelle Collection à shopper
             </h1>
             <p className="max-w-2xl mb-6 font-light text-black lg:mb-8 md:text-lg lg:text-xl">
               Découvrez notre nouvelle collection 2024 pour habiller toute la famille!
             </p>
-            <button
-              type="button"
-              className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white  hover:bg-gray-500"
-            >
-              Voir la collection
+            <button className="group relative h-12 w-48 overflow-hidden bg-white text-lg shadow">
+              <div className="absolute inset-0 w-3 bg-black transition-all duration-[400ms] ease-out group-hover:w-full"></div>
+              <span className="relative text-black group-hover:text-white">Voir la collection</span>
             </button>
           </div>
           <div className="lg:mt-0 lg:col-span-5 lg:flex relative">
@@ -101,7 +104,7 @@ export default function Home() {
               <h2>Vêtement pour la femme musulmane</h2>
               <div className="xl:w-[40rem] m-auto mt-8 text-[15px] leading-[1.5rem]">
                 <p>
-                  Abaya est une marque dédiée à la femme musulmane. Chez Abaya, nous vous offrons une
+                  <strong>Abayaty</strong> est une marque dédiée à la femme musulmane. Chez Abaya, nous vous offrons une
                   sélection exceptionnelle de modèles uniques qui allient pudeur et discrétion, tout
                   en respectant le style et la législation qui sont importants pour les femmes musulmanes.
                   Notre collection d'abayas reflète notre engagement envers vos valeurs, en proposant des
@@ -131,7 +134,7 @@ export default function Home() {
             styles={customCarouselStyles}
           >
             {Promotions.map((promotion) => (
-              <div className="bg-[#aaa1a196] h-40 flex flex-col justify-center items-center"
+              <div className="bg-[#c0bebe] h-40 flex flex-col justify-center items-center"
                 key={promotion.id}>
                 <h2 className="text-4xl mb-3 font-montserrat">{promotion.title}</h2>
                 <p className="text-white font-serif text-sm">{promotion.description}</p>
@@ -141,13 +144,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Product display */}
 
       <section
-        className=" bg-orange-100"
+        className="my-10 mx-auto p-[10px]"
         data-section
         id="second-section"
       >
-        <div className="bg-red-400 mt-10">Third section</div>
+        <div className="flex justify-center text-4xl my-5 uppercase font-semibold">
+          <h1>Notre selection de robes</h1>
+        </div>
+        <ProductsHomePage />
 
       </section>
     </>

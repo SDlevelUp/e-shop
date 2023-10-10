@@ -19,10 +19,10 @@ function NavItems({ isModalView = false }) {
             className={`items-center justify-between w-full md:flex md:w-auto ${isModalView ? "" : "hidden"}`}
             id="nav-items"
         >
-            <ul className="flex flex-col font-medium md:flex-row md:space-x-2 whitespace-nowrap mt-2">
+            <ul className="flex flex-col md:flex-row md:space-x-3 whitespace-nowrap mt-2">
                 {navOptions.map((item) => (
                     <li
-                        className=" text-gray-light text-[0.95rem] tracking-widest font-medium leading-[0.938rem] cursor-pointer block py-2 pl-3 pr-4 uppercase md:p-0 hover:underline hover:underline-offset-4 "
+                        className=" text-gray-light text-[0.95rem] tracking-widest leading-[0.938rem] cursor-pointer block py-2 pl-3 pr-4 uppercase md:p-0 hover:underline hover:underline-offset-4 "
                         key={item.id}
                         onClick={() => router.push(item.path)}
                     >
@@ -124,7 +124,7 @@ export default function Navbar() {
                         onClick={() => router.push("/")}
                         className="flex items-center cursor-pointer"
                     >
-                        <span className="self-center text-2xl font-semibold font-roboto whitespace-nowrap">
+                        <span className="self-center text-2xl font-montserrat whitespace-nowrap tracking-widest">
                             Abayaty
                         </span>
                     </div>
@@ -132,7 +132,7 @@ export default function Navbar() {
                         <button
                             onClick={() => router.push('/login')}
                             className="
-                                    hover:text-[#aaa1a1]
+                                    hover:text-slate-400
                                     transition 
                                     duration-300 
                                     w-9 
@@ -149,7 +149,7 @@ export default function Navbar() {
                         <button
                             onClick={() => router.push('/register')}
                             className="
-                            hover:text-[#aaa1a1]
+                            hover:text-slate-400
                             transition 
                             duration-300 
                             w-9 
@@ -166,7 +166,7 @@ export default function Navbar() {
                         <button
                             onClick={() => router.push('/register')}
                             className="
-                            hover:text-[#aaa1a1]
+                            hover:text-slate-400                            
                             transition 
                             duration-300 
                             w-9 

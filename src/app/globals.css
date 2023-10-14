@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .animation {
-  animation: defilement-rtl 15s infinite linear;
+  animation: defilement-rtl 30s infinite linear;
 }
 
 @keyframes defilement-rtl {
@@ -68,7 +67,15 @@ body::-webkit-scrollbar-thumb {
   transform: scaleX(1);
 }
 
-.fill-red-300 {
-  fill: red;
-  transition: fill 0.2s;
+.heart-icon {
+  color: black;
+}
+
+.heart-icon:hover {
+  color: red;
+}
+
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.619);
 }

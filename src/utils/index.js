@@ -5,26 +5,109 @@ export const navOptions = [
         path: "/"
     },
     {
-        id: "listing",
-        label: "Tout nos produits",
-        path: "/produit/listing/tout-les-produits"
+        id: "productsMen",
+        label: "Homme",
+        path: "",
+        hasSubMenu: true,
+        subMenuItems: [
+            {
+                id: "qamis",
+                label: "Qamis",
+                path: "/homme/qamis"
+            },
+            {
+                id: "sarwels",
+                label: "Sarwels",
+                path: "/homme/sarwels"
+            },
+            {
+                id: "tshirts",
+                label: "T-shirts Oversize",
+                path: "/homme/t-shirts-oversize"
+            }
+        ]
     },
     {
-        id: "listingMen",
-        label: "Hommes",
-        path: "/produit/listing/mode-hommes"
-    },
-    {
-        id: "listingWomen",
+        id: "productsWomen",
         label: "Femmes",
-        path: "/produit/listing/mode-femmes"
+        path: "",
+        hasSubMenu: true,
+        subMenuItems: [
+            {
+                id: "abayas",
+                label: "Abaya",
+                path: "/femmes/vêtements/abaya",
+                hasSubMenu: true,
+            },
+            {
+                id: "khimars",
+                label: "Khimars",
+                path: "/femmes/khimars"
+            },
+            {
+                id: "jilbabs",
+                label: "Jilbab",
+                path: "/femmes/jilbabs"
+            },
+            {
+                id: "gloves",
+                label: "Gants",
+                path: "/femmes/gants"
+            }
+        ]
     },
     {
-        id: "listingKids",
+        id: "productsKids",
         label: "Enfants",
-        path: "/produit/listing/mode-enfants"
+        path: "",
+        hasSubMenu: true,
+        subMenuItems: [
+            {
+                id: "kidsQamis",
+                label: "Qamis",
+                path: "/enfants/qamis"
+            },
+            {
+                id: "kidsSarwels",
+                label: "Sarwels",
+                path: "/enfants/vêtements/sarwels"
+            },
+            {
+                id: "kidsSets",
+                label: "Ensembles",
+                path: "/enfants/vêtements/ensembles"
+            }
+        ]
     },
-]
+    {
+        id: "perfumes",
+        label: "Parfums",
+        path: "",
+        hasSubMenu: true,
+        subMenuItems: [
+            {
+                id: "muscs",
+                label: "Muscs",
+                path: "/parfums/muscs"
+            },
+            {
+                id: "arabianOud",
+                label: "Arabian Oud",
+                path: "/parfums/arabian-oud"
+            },
+            {
+                id: "indoorPerfumes",
+                label: "Parfums d'intérieur",
+                path: "/parfums/parfums-d-interieur"
+            }
+        ]
+    },
+    {
+        id: "sizeGuide",
+        label: "Guide des tailles",
+        path: "/guide-des-tailles"
+    }
+];
 
 export const registrationFormControls = [
     {
@@ -54,7 +137,7 @@ export const registrationFormControls = [
         placeholder: "Choisissez un mot de passe",
         label: "Mot de passe*",
         componentType: "input",
-        
+
     },
 ]
 

@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        '3xl': '2560px'
+        '3xl': '2560px',
+        'tablet': '768px'
       },
       fontFamily: {
         lato: ['var(--font-lato)'],
@@ -16,7 +17,7 @@ module.exports = {
         montserrat: ['var(--font-montserrat)'],
       },
       backgroundImage: {
-        'banner-texture': "url('/img/texture2.jpg')",
+        'banner-texture': "url('/img/texture.jpg')",
       },
       width: {
         'calc-100-minus-5rem': 'calc(100% - 8rem)',

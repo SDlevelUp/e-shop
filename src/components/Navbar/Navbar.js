@@ -1,6 +1,7 @@
 "use client";
 
 import { navOptions } from "@/utils";
+
 import { useContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { GlobalContext } from "@/context";
@@ -11,28 +12,60 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
+import Link from "next/link";
 
 function NavItems({ isModalView = false }) {
-    const router = useRouter();
+    const [activeSubMenu, setActiveSubMenu] = useState(null);
+
+    if (!navOptions || !Array.isArray(navOptions)) {
+        return null;
+    }
+
+    const handleSubMenuClick = (itemId) => {
+        if (activeSubMenu === itemId) {
+            setActiveSubMenu(null);
+        } else {
+            setActiveSubMenu(itemId);
+        }
+    };
+
     return (
         <div
-            className={`items-center justify-between w-full md:flex md:w-auto ${isModalView ? "" : "hidden"}`}
+            className={`items-center justify-between w-full md:flex md:w-auto ${isModalView ? '' : 'hidden'}`}
             id="nav-items"
         >
             <ul className="flex flex-col md:flex-row md:space-x-3 whitespace-nowrap mt-2">
                 {navOptions.map((item) => (
                     <li
-                        className=" text-gray-light text-[0.95rem] tracking-widest leading-[0.938rem] cursor-pointer block py-2 pl-3 pr-4 uppercase md:p-0 hover:underline hover:underline-offset-4 "
+                        className="text-black text-[0.95rem] tracking-widest leading-[0.938rem] cursor-pointer block py-2 pl-3 pr-4 uppercase md:p-0 hover:underline hover:underline-offset-4"
                         key={item.id}
-                        onClick={() => router.push(item.path)}
                     >
-                        <span className="link-text">{item.label}</span>
+                        <Link href={item.path}>
+                            <span onClick={() => handleSubMenuClick(item.id)}>
+                                {item.label}
+                            </span>
+                        </Link>
+                        {item.hasSubMenu && activeSubMenu === item.id && (
+                            <ul className="pl-2 pt-1 space-y-1">
+                                {item.subMenuItems.map((subItem) => (
+                                    <li
+                                        key={subItem.id}
+                                        className="text-black text-[0.9rem] leading-[0.9rem] cursor-pointer hover:underline hover:underline-offset-4"
+                                        onClick={() => handleSubMenuClick(subItem.id)}
+                                    >
+                                        <Link href={subItem.path}>
+                                            <span>{subItem.label}</span>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </li>
                 ))}
             </ul>
         </div>
     );
-};
+}
 
 function SearchBar() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -83,7 +116,6 @@ function SearchBar() {
 export default function Navbar() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    console.log("isLoggedIn:", isLoggedIn);
 
     const {
         showNavModal,
@@ -92,7 +124,9 @@ export default function Navbar() {
         setUser,
         isAuthUser,
         setIsAuthUser,
+
     } = useContext(GlobalContext);
+
     const router = useRouter();
 
     async function handleLogout() {
@@ -124,7 +158,7 @@ export default function Navbar() {
                         onClick={() => router.push("/")}
                         className="flex items-center cursor-pointer"
                     >
-                        <span className="self-center text-2xl font-montserrat whitespace-nowrap tracking-widest">
+                        <span className="self-center text-2xl font-montserrat whitespace-nowrap tracking-widest text-black">
                             Abayaty
                         </span>
                     </div>

@@ -30,11 +30,11 @@ export default function FavoriteButton({ productId }) {
 
     return (
         <button onClick={toggleFavorite}>
-            {isFavorite ? (
-                <FavoriteIcon className="fill-red-300" />
-            ) : (
-                <FavoriteBorderIcon className="empty" />
-            )}
-        </button>
+        {isFavorite ? (
+            <FavoriteIcon className="absolute heart-icon hover:heart-icon-red" />
+        ) : (
+            <FavoriteBorderIcon className=" empty" />
+        )}
+    </button>
     );
 }

@@ -1,16 +1,16 @@
 import Link from 'next/link';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import MapIcon from '@mui/icons-material/Map';
+import PlaceIcon from '@mui/icons-material/Place';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 
 export default function Footer() {
     return (
 
-        <footer className="bg-[white] dark:bg-[#c0bebe]">
+        <footer className="bg-[white] dark:bg-[#c0bebe] mt-12">
             <div className="mx-auto w-full max-w-screen-xl">
-                <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 py-6 lg:py-8">
                     <div>
                         <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Informations</h2>
                         <ul className="text-black font-medium text-sm">
@@ -76,8 +76,9 @@ export default function Footer() {
                                 </Link>
                             </li>
                         </ul>
-
                     </div>
+
+
                     <div>
                         <h2 className="mb-6 text-sm font-semibold text-black uppercase dark:text-white">Mon compte</h2>
                         <ul className="text-black font-medium text-sm">
@@ -119,11 +120,12 @@ export default function Footer() {
                             Nous retrouver
                         </h2>
                         <div className="text-sm mb-4 flex items-start">
-                            <MapIcon className="mr-3" />
+                            <PlaceIcon className="mr-3 w-7 h-7" />
                             <div>
                                 <Link href="https://www.google.fr/maps/preview">
-                                    <p>13 Avenue de Paris</p>
-                                    <p>75008 Paris</p>
+                                    <span>13 Avenue de la commune </span>
+                                    <br />
+                                    <span> 75008 Paris, FRANCE</span>
                                 </Link>
                             </div>
                         </div>
@@ -140,7 +142,27 @@ export default function Footer() {
                             </Link>
                         </div>
                     </div>
+
+                    <div>
+                        <h2 className="mb-6 text-sm font-semibold text-black uppercase dark:text-white">Newsletter</h2>
+                        <span className="text-sm text-black mb-4">
+                            Inscrivez-vous à notre newsletter pour recevoir les dernières offres et actualités.
+                        </span>
+                        <div className="flex text-xs ">
+                            <input
+                                type="email"
+                                placeholder="Votre adresse e-mail" 
+                                className="w-full px-3 py-2 focus:outline-none bg-transparent border-black border-b-[1.5px] "
+                            />
+                            <button className="bg-black text-white px-4 py-2 ml-2 focus:outline-none">
+                                S'abonner
+                            </button>
+                        </div>
+                    </div>
                 </div>
+
+
+
                 <div className="px-4 py-6 md:flex md:items-center md:justify-between">
                     <span className="text-sm text-black sm:text-center">© 2023 <Link href="#/"> Abayaty</Link>. Tout droits réservés.
                     </span>

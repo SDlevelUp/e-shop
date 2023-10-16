@@ -1,125 +1,27 @@
 "use client";
 
-import { navOptions } from "@/utils";
-
 import { useContext, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { GlobalContext } from "@/context";
-import { useRouter } from "next/navigation";
-import CommonModal from "@/components/CommonModal/CommonModal";
 import Cookies from "js-cookie";
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import PersonIcon from '@mui/icons-material/Person';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
-import Link from "next/link";
 
-function NavItems({ isModalView = false }) {
-    const [activeSubMenu, setActiveSubMenu] = useState(null);
-
-    if (!navOptions || !Array.isArray(navOptions)) {
-        return null;
-    }
-
-    const handleSubMenuClick = (itemId) => {
-        if (activeSubMenu === itemId) {
-            setActiveSubMenu(null);
-        } else {
-            setActiveSubMenu(itemId);
-        }
-    };
-
-    return (
-        <div
-            className={`items-center justify-between w-full md:flex md:w-auto ${isModalView ? '' : 'hidden'}`}
-            id="nav-items"
-        >
-            <ul className="flex flex-col md:flex-row md:space-x-3 whitespace-nowrap mt-2">
-                {navOptions.map((item) => (
-                    <li
-                        className="text-black text-[0.95rem] tracking-widest leading-[0.938rem] cursor-pointer block py-2 pl-3 pr-4 uppercase md:p-0 hover:underline hover:underline-offset-4"
-                        key={item.id}
-                    >
-                        <Link href={item.path}>
-                            <span onClick={() => handleSubMenuClick(item.id)}>
-                                {item.label}
-                            </span>
-                        </Link>
-                        {item.hasSubMenu && activeSubMenu === item.id && (
-                            <ul className="pl-2 pt-1 space-y-1">
-                                {item.subMenuItems.map((subItem) => (
-                                    <li
-                                        key={subItem.id}
-                                        className="text-black text-[0.9rem] leading-[0.9rem] cursor-pointer hover:underline hover:underline-offset-4"
-                                        onClick={() => handleSubMenuClick(subItem.id)}
-                                    >
-                                        <Link href={subItem.path}>
-                                            <span>{subItem.label}</span>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
-}
-
-function SearchBar() {
-    const [searchQuery, setSearchQuery] = useState('');
-    const router = useRouter();
-
-    const handleSearch = () => {
-        router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
-    };
-
-    return (
-        <div className="absolute top-5">
-            <input
-                type="text"
-                placeholder="Rechercher..."
-                className="px-4 py-1 pr-9 border border-gray-200 rounded-lg xl:w-96 "
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button
-                onClick={handleSearch}
-                className="absolute top-1/2 right-2 transform -translate-y-1/2 p-1 text-gray-500 hover:text-gray-700 "
-                style={{
-                    zIndex: 1,
-                    background: 'transparent',
-                    border: 'none',
-                    cursor: 'pointer',
-                }}
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M21 21l-4.351-4.351M9 17a6 6 0 100-12 6 6 0 000 12z"
-                    />
-                </svg>
-            </button>
-        </div>
-    );
-};
+import SearchBar from "../SearchBar/SearchBar";
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import NavLinks from "./NavLinks";
+import Devises from "./DevisesDropdown";
 
 export default function Navbar() {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [open, setOpen] = useState(false);
+
 
     const {
-        showNavModal,
-        setShowNavModal,
         user,
         setUser,
         isAuthUser,
@@ -146,128 +48,78 @@ export default function Navbar() {
     useEffect(() => {
         setIsLoggedIn(isAuthUser);
     }, [isAuthUser]);
-
     return (
-        <>
-            <nav className="bg-white fixed w-full z-20 top-0 left-0 shadow-md">
-                <div className="flex justify-center inset-0 mb-12">
+        <nav className="bg-white p-10">
+            <div className="flex items-center justify-between max-w-screen-3xl">
+                <div className="z-50 items-center justify-center hidden md:flex">
                     <SearchBar />
                 </div>
-                <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-                    <div
-                        onClick={() => router.push("/")}
-                        className="flex items-center cursor-pointer"
-                    >
-                        <span className="self-center text-2xl font-montserrat whitespace-nowrap tracking-widest text-black">
-                            Abayaty
-                        </span>
-                    </div>
-                    <div className="flex md:order-2">
-                        <button
-                            onClick={() => router.push('/login')}
-                            className="
-                                    hover:text-slate-400
-                                    transition 
-                                    duration-300 
-                                    w-9 
-                                    h-9 
-                                    justify-center 
-                                    items-center 
-                                    flex 
-                                    text-black
-                                "
-                        >
-                            <PersonOutlineIcon fontSize="medium" />
-                        </button>
-
-                        <button
-                            onClick={() => router.push('/register')}
-                            className="
-                            hover:text-slate-400
-                            transition 
-                            duration-300 
-                            w-9 
-                            h-9 
-                            justify-center 
-                            items-center 
-                            flex 
-                            text-black
-                        "
-                        >
-                            <FavoriteBorderOutlinedIcon fontSize="medium" />
-                        </button>
-
-                        <button
-                            onClick={() => router.push('/register')}
-                            className="
-                            hover:text-slate-400                            
-                            transition 
-                            duration-300 
-                            w-9 
-                            h-9 
-                            justify-center 
-                            items-center 
-                            flex 
-                            text-black
-                        "
-                        >
-                            <ShoppingBagOutlinedIcon fontSize="medium" />
-                        </button>
-                        {isLoggedIn && (
-                            <button
-                                onClick={() => handleLogout()}
-                                className="
-                                    text-red-500
-                                    transition 
-                                    duration-300 
-                                    w-9 
-                                    h-9 
-                                    justify-center 
-                                    items-center 
-                                    flex 
-                                "
-                            >
-                                <ExitToAppOutlinedIcon fontSize="medium" />
-                            </button>
-                        )}
-
-                        <button
-                            data-collapse-toggle="navbar-sticky"
-                            type="button"
-                            className="inline-flex items-center text-sm text-black lg:hidden hover:bg-gray-100 md:flex"
-                            aria-controls="navbar-sticky"
-                            aria-expanded="false"
-                            onClick={() => setShowNavModal(true)}
-                        >
-                            <span className="sr-only">Open main menu</span>
-                            <svg
-                                className="w-6 h-6"
-                                aria-hidden="true"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                    clipRule="evenodd"
-                                ></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <NavItems />
+                <div onClick={() => setOpen(!open)}
+                    className="text-2xl flex md:hidden z-50">
+                    {open ? <CloseOutlinedIcon /> : <MenuOutlinedIcon />}
                 </div>
-            </nav>
-            <CommonModal
-                showModalTitle={false}
-                mainContent={
-                    <NavItems
-                        isModalView={true}
-                    />
-                }
-                show={showNavModal}
-                setShow={setShowNavModal}
-            />
-        </>
-    );
+
+                <div className="flex items-center justify-center ">
+                    <h1 className="text-sm md:text-2xl text-center">Abayaty</h1>
+                </div>
+                <div className="flex md:order-2">
+                    <button
+                        onClick={() => router.push('/login')}
+                        className="hover:text-slate-400 transition duration-300 items-center flex text-black ml-6"
+                    >
+                        <div className="flex flex-col items-center cursor-pointer">
+                            <PersonIcon />
+                            <span className="hidden lg:block whitespace-nowrap">Se connecter</span>
+                        </div>
+                    </button>
+
+                    <button
+                        onClick={() => router.push('/register')}
+                        className="hover:text-slate-400 transition duration-300 items-center flex text-black md:ml-6 ml-4"
+                    >
+                        <div className="flex flex-col items-center">
+                            <ShoppingBagIcon />
+                            <span className="hidden lg:block">Panier</span>
+                        </div>
+                    </button>
+                    <Devises />
+                    {isLoggedIn && (
+                        <button
+                            onClick={() => handleLogout()}
+                            className="text-red-500 transition duration-300 w-9 h-9 justify-center items-center flex"
+                        >
+                            <ExitToAppOutlinedIcon fontSize="medium" />
+                        </button>
+                    )}
+                </div>
+            </div>
+
+            <ul className="font-montserrat font-normal md:flex hidden uppercase items-center justify-center gap-8 pt-14">
+                <NavLinks />
+            </ul>
+
+            {/* Mobile nav */}
+            <ul
+                className={`
+                    md:hidden 
+                    bg-red-200
+                    fixed 
+                    w-full 
+                    top-0 
+                    z-10
+                    overflow-y-auto 
+                    bottom-0 
+                    py-24 
+                    pl-4
+                    duration-500 ${open ? "left-0" : "left-[-100%]"}
+        `}
+            >
+                <div className="md:flex hidden items-center justify-center mt-4">
+                    <SearchBar />
+                </div>
+                <NavLinks className="inline-block" />
+
+            </ul>
+        </nav>
+    )
 };

@@ -5,7 +5,7 @@ import { Lato, Roboto, Montserrat} from 'next/font/google';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import GlobalState from '@/context';
-import Dropdown from '@/components/Navbar/Dropdown';
+
 
 export const roboto = Roboto({
   weight: ['400'],
@@ -42,8 +42,7 @@ export default function RootLayout({ children }) {
       <body className={`${roboto.variable} ${lato.variable} ${montserrat.variable} font-montserrat`}>
         <GlobalState>
           <Navbar />
-          <Dropdown />
-          <main className='flex min-h-screen flex-col mt-24'>
+          <main className='flex min-h-screen flex-col mt-0'>
             {children}
           </main>
           <Footer />

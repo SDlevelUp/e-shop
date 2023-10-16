@@ -1,11 +1,11 @@
-export const navOptions = [
+export const navLinks = [
     {
-        id: "home",
-        label: "Accueil",
+        id: "new",
+        label: "Nouveautés",
         path: "/"
     },
     {
-        id: "productsMen",
+        id: "men",
         label: "Homme",
         path: "",
         hasSubMenu: true,
@@ -28,7 +28,7 @@ export const navOptions = [
         ]
     },
     {
-        id: "productsWomen",
+        id: "women",
         label: "Femmes",
         path: "",
         hasSubMenu: true,
@@ -57,7 +57,7 @@ export const navOptions = [
         ]
     },
     {
-        id: "productsKids",
+        id: "kids",
         label: "Enfants",
         path: "",
         hasSubMenu: true,

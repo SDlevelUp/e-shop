@@ -14,7 +14,7 @@ export default function SearchBar() {
             <input
                 type="text"
                 placeholder="Rechercher..."
-                className="p-2 w-60 border-b bg-gray-100 focus:outline-none focus:border-b-black focus:bg-slate-300 focus:bg-opacity-30 text-black"
+                className="p-2 w-[270px] md:w-60 border-b bg-gray-100 focus:outline-none focus:border-b-black focus:bg-slate-300 focus:bg-opacity-30 text-black"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
             />

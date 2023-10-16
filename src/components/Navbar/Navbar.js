@@ -48,19 +48,20 @@ export default function Navbar() {
     useEffect(() => {
         setIsLoggedIn(isAuthUser);
     }, [isAuthUser]);
+
     return (
-        <nav className="bg-white p-10">
+        <nav className="bg-white md:p-10 p-3 z-50">
             <div className="flex items-center justify-between max-w-screen-3xl">
-                <div className="z-50 items-center justify-center hidden md:flex">
+                <div className="items-center justify-center hidden md:flex">
                     <SearchBar />
                 </div>
                 <div onClick={() => setOpen(!open)}
-                    className="text-2xl flex md:hidden z-50">
+                    className="text-2xl text-black flex md:hidden z-50 cursor-pointer">
                     {open ? <CloseOutlinedIcon /> : <MenuOutlinedIcon />}
                 </div>
 
-                <div className="flex items-center justify-center ">
-                    <h1 className="text-sm md:text-2xl text-center">Abayaty</h1>
+                <div className="p-5 text-black md:w-auto w-full flex justify-between">
+                    <h1 className="text-[20px] md:text-2xl text-center">Abayaty</h1>
                 </div>
                 <div className="flex md:order-2">
                     <button
@@ -94,7 +95,7 @@ export default function Navbar() {
                 </div>
             </div>
 
-            <ul className="font-montserrat font-normal md:flex hidden uppercase items-center justify-center gap-8 pt-14">
+            <ul className="text-black font-montserrat font-normal md:flex hidden uppercase items-center justify-center gap-8 pt-14">
                 <NavLinks />
             </ul>
 
@@ -102,24 +103,23 @@ export default function Navbar() {
             <ul
                 className={`
                     md:hidden 
-                    bg-red-200
+                    bg-slate-200
                     fixed 
                     w-full 
                     top-0 
                     z-10
                     overflow-y-auto 
                     bottom-0 
-                    py-24 
+                    py-24
                     pl-4
                     duration-500 ${open ? "left-0" : "left-[-100%]"}
         `}
             >
-                <div className="md:flex hidden items-center justify-center mt-4">
-                    <SearchBar />
+                <div className="space-y-10 inline-block">
+                    <NavLinks className="inline-block" />
                 </div>
-                <NavLinks className="inline-block" />
 
             </ul>
-        </nav>
+        </nav >
     )
 };

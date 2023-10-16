@@ -28,7 +28,7 @@ export default function DevisesDropdown() {
             className="relative inline-block"
         >
             <button
-                ref={buttonRef} 
+                ref={buttonRef}
                 id="dropdownHoverButton"
                 className="text-black text-sm px-5 py-2.5 text-center inline-flex items-center "
                 type="button"
@@ -54,17 +54,17 @@ export default function DevisesDropdown() {
             {isDropdownOpen && (
                 <div
                     id="dropdownHover"
-                    className="w-16 absolute top-10 right-0"
+                    className="md:w-16 w-10 absolute top-10 md:right-0 right-5"
                 >
                     <ul
-                        className="text-sm text-black  border-[1px] border-black"
+                        className="text-sm text-black border-[1px] border-black bg-white  "
                         aria-labelledby="dropdownHoverButton"
                     >
                         {devisesList.map((devise, index) => (
                             <li key={index}>
                                 <a
                                     href="#"
-                                    className="block"
+                                    className="block hover:bg-slate-200"
                                 >
                                     {devise}
                                 </a>

@@ -50,18 +50,18 @@ export default function Navbar() {
     }, [isAuthUser]);
 
     return (
-        <nav className="bg-white md:p-10 p-3 z-50">
-            <div className="flex items-center justify-between max-w-screen-3xl">
-                <div className="items-center justify-center hidden md:flex">
+        <nav className="bg-white md:p-10 p-3">
+            <div className="flex items-center justify-between max-w-screen">
+                <div className="md:flex hidden w-52">
                     <SearchBar />
                 </div>
-                <div onClick={() => setOpen(!open)}
-                    className="text-2xl text-black flex md:hidden z-50 cursor-pointer">
+                <div onClick={() => setOpen(!open)} className="text-2xl text-black flex md:hidden z-50 cursor-pointer">
                     {open ? <CloseOutlinedIcon /> : <MenuOutlinedIcon />}
                 </div>
-
-                <div className="p-5 text-black md:w-auto w-full flex justify-between">
-                    <h1 className="text-[20px] md:text-2xl text-center">Abayaty</h1>
+                <div className="text-black flex justify-between text-center text-[20px] md:text-3xl font-semibold">
+                    <h1>
+                        Abayaty
+                    </h1>
                 </div>
                 <div className="flex md:order-2">
                     <button
@@ -104,18 +104,19 @@ export default function Navbar() {
                 className={`
                     md:hidden 
                     bg-slate-200
+                    text-black
                     fixed 
                     w-full 
                     top-0 
                     z-10
                     overflow-y-auto 
                     bottom-0 
-                    py-24
+                    py-20 
                     pl-4
                     duration-500 ${open ? "left-0" : "left-[-100%]"}
         `}
             >
-                <div className="space-y-10 inline-block">
+                <div className="space-y-10 inline-block cursor-pointer">
                     <NavLinks className="inline-block" />
                 </div>
 

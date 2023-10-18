@@ -16,6 +16,10 @@ module.exports = {
         roboto: ['var(--font-roboto)'],
         montserrat: ['var(--font-montserrat)'],
       },
+      colors: {
+        'black-black': '#000000',
+        'without-white': '#f1f1f1',
+      },
       backgroundImage: {
         'banner-texture': "url('/img/texture.jpg')",
       },

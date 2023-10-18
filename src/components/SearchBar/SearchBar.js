@@ -1,48 +1,44 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function SearchBar() {
+    const [expanded, setExpanded] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const router = useRouter();
 
+    const handleClick = () => {
+        setExpanded(!expanded);
+    };
+
     const handleSearch = () => {
-        router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
+        if (searchQuery.trim() !== '') {
+            router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
     };
 
     return (
-        <div className="relative p-0">
-            <input
-                type="text"
-                placeholder="Rechercher..."
-                className="p-2 w-[270px] md:w-60 border-b bg-gray-100 focus:outline-none focus:border-b-black focus:bg-slate-300 focus:bg-opacity-30 text-black"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button
-                onClick={handleSearch}
-                className="absolute top-1/2 right-0 transform -translate-y-1/2 p-1 text-black"
-                style={{
-                    zIndex: 1,
-                    background: 'transparent',
-                    border: 'none',
-                    cursor: 'pointer',
-                }}
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M21 21l-4.351-4.351M9 17a6 6 0 100-12 6 6 0 000 12z"
-                    />
-                </svg>
-            </button>
+        <div className="relative">
+            <div className="flex items-center bg-[#c0bebe] rounded-full p-2">
+                <input
+                    type="text"
+                    placeholder="Rechercher ..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    className={`p-0 rounded-full bg-transparent focus:outline-none transition-all duration-300 ${expanded ? "w-52" : "w-0"
+                        }`}
+                />
+                <button className="flex items-center justify-center text-black" onClick={handleClick}>
+                    <SearchIcon />
+                </button>
+            </div>
         </div>
     );
 };

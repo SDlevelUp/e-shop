@@ -20,6 +20,7 @@ body {
   color: rgb(var(--foreground-rgb));
   min-height: 100vh;
   height: 100%;
+  font-family: "Montserrat", sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -44,15 +45,14 @@ body::-webkit-scrollbar-thumb {
   transition: color 0.3s ease;
 }
 
-
 .link-text::before {
   content: "";
   position: absolute;
-  bottom: 1px;
-  left: 0;
-  width: 100%;
+  bottom: 4px;
+  left: 10%;
+  width: 80%;
   height: 0.4rem;
-  background-color: #7080905f;
+  background-color: #c0bebe;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -60,7 +60,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .link-text:hover {
-  color: #708090;
+  color: #c0bebe;
 }
 
 .link-text:hover::before {
@@ -78,7 +78,20 @@ body::-webkit-scrollbar-thumb {
 .dialog-enter {
   transform: translateY(-100%);
 }
+
 .dialog-enter-active {
   transform: translateY(0);
   transition: transform 0.3s;
 }
+
+input::placeholder {
+  color: #000000;
+  padding-left: 12px;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+  /* Ajoute une transition pour une animation en douceur */
+}
+

@@ -1,114 +1,191 @@
-export const navLinks = [
+export const links = [
     {
-        id: "new",
-        label: "Nouveautés",
-        path: "/"
+        name: "Nouveautes",
+        submenu: true,
+        path: "/homme/qamis-emirati",
+        sublinks: [
+            {
+                Head: "Enfant",
+                sublink: [],
+            },
+        ],
     },
     {
-        id: "men",
-        label: "Homme",
-        path: "",
-        hasSubMenu: true,
-        subMenuItems: [
+        name: "Homme",
+        submenu: true,
+        sublinks: [
             {
-                id: "qamis",
-                label: "Qamis",
-                path: "/homme/qamis"
+                Head: "Qamis",
+                sublink: [
+                    { name: "Emirati", path: "/homme/qamis-emirati" },
+                    { name: "Saoudien", path: "/homme/qamis-saoudien" },
+                    { name: "Omani", path: "/homme/qamis-omani" },
+                    { name: "Sultan", path: "/homme/qamis-sultan" },
+                ],
             },
             {
-                id: "sarwels",
-                label: "Sarwels",
-                path: "/homme/sarwels"
+                Head: "Ensembles",
+                sublink: [
+                    { name: "Jabador", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
             },
             {
-                id: "tshirts",
-                label: "T-shirts Oversize",
-                path: "/homme/t-shirts-oversize"
-            }
-        ]
-    },
-    {
-        id: "women",
-        label: "Femmes",
-        path: "",
-        hasSubMenu: true,
-        subMenuItems: [
-            {
-                id: "abayas",
-                label: "Abaya",
-                path: "/femmes/vêtements/abaya",
-                hasSubMenu: true,
+                Head: "innerwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
             },
-            {
-                id: "khimars",
-                label: "Khimars",
-                path: "/femmes/khimars"
-            },
-            {
-                id: "jilbabs",
-                label: "Jilbab",
-                path: "/femmes/jilbabs"
-            },
-            {
-                id: "gloves",
-                label: "Gants",
-                path: "/femmes/gants"
-            }
-        ]
-    },
-    {
-        id: "kids",
-        label: "Enfants",
-        path: "",
-        hasSubMenu: true,
-        subMenuItems: [
-            {
-                id: "kidsQamis",
-                label: "Qamis",
-                path: "/enfants/qamis"
-            },
-            {
-                id: "kidsSarwels",
-                label: "Sarwels",
-                path: "/enfants/vêtements/sarwels"
-            },
-            {
-                id: "kidsSets",
-                label: "Ensembles",
-                path: "/enfants/vêtements/ensembles"
-            }
-        ]
-    },
-    {
-        id: "perfumes",
-        label: "Parfums",
-        path: "",
-        hasSubMenu: true,
-        subMenuItems: [
-            {
-                id: "muscs",
-                label: "Muscs",
-                path: "/parfums/muscs"
-            },
-            {
-                id: "arabianOud",
-                label: "Arabian Oud",
-                path: "/parfums/arabian-oud"
-            },
-            {
-                id: "indoorPerfumes",
-                label: "Parfums d'intérieur",
-                path: "/parfums/parfums-d-interieur"
-            }
-        ]
-    },
-    {
-        id: "sizeGuide",
-        label: "Guide des tailles",
-        path: "/guide-des-tailles"
-    }
-];
 
+            {
+                Head: "sleepwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+            {
+                Head: "footwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+        ],
+    },
+    {
+        name: "Femme",
+        submenu: true,
+        sublinks: [
+            {
+                Head: "Topwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+            {
+                Head: "Bottomwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+            {
+                Head: "innerwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+
+            {
+                Head: "sleepwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+            {
+                Head: "footwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+        ],
+    },
+    {
+        name: "Enfants",
+        submenu: true,
+        sublinks: [
+            {
+                Head: "Topwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+            {
+                Head: "Bottomwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+            {
+                Head: "innerwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+
+            {
+                Head: "sleepwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+            {
+                Head: "footwear",
+                sublink: [
+                    { name: "T-shirt", path: "/homme/qamis-emirati" },
+                    { name: "Casual shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                    { name: "formal shirts", path: "/homme/qamis-emirati" },
+                ],
+            },
+        ],
+    },
+    {
+        name: "Guide des tailles",
+        link: "/guide-des-tailles",
+        sublinks: [],
+    },
+];
 export const registrationFormControls = [
     {
         id: "lastName",

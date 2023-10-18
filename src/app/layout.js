@@ -1,6 +1,6 @@
 import './globals.css';
 
-import { Lato, Roboto, Montserrat} from 'next/font/google';
+import { Lato, Roboto, Montserrat } from 'next/font/google';
 
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>
-      <body className={`${roboto.variable} ${lato.variable} ${montserrat.variable} font-montserrat`}>
+      <body className={`${roboto.variable} ${lato.variable} ${montserrat.variable} font-montserrat text-black-global bg-without-white`}>
         <GlobalState>
           <Navbar />
           <main className='flex min-h-screen flex-col mt-0'>

@@ -11,7 +11,7 @@ const NavLinks = ({ isHover }) => {
     return (
         <>
             {links.map((link) => (
-                <div>
+                <div key={link.id}>
                     <div className="px-3 text-left md:cursor-pointer group link-text">
                         <h1
                             className="flex justify-between items-center md:pr-0 group font-montserrat"
@@ -21,14 +21,12 @@ const NavLinks = ({ isHover }) => {
                             }}
                         >
                             {link.name}
-
-
                         </h1>
                         {link.submenu && (
-                            <div>
+                            <div key={link.id}>
                                 <div className={`
                                         fixed
-                                        top-52
+                                        top-[213px]
                                         hidden
                                         group-hover:md:block
                                         hover:md:block
@@ -41,14 +39,16 @@ const NavLinks = ({ isHover }) => {
                                         duration-1000
                                         ${isHover ? 'opacity-100' : 'opacity-1'}
                                     `}>
-                                    <div className="p-5 grid grid-cols-3 gap-10 font-montserrat bg-without-white">
+                                    <div className="p-5 flex flex-wrap space-x-10 font-montserrat bg-without-white w-full">
                                         {link.sublinks.map((mysublinks) => (
-                                            <div className="text-lg font-semibold">
+                                            <div key={mysublinks.id}
+                                                className="text-lg font-semibold ">
                                                 <h1>
                                                     {mysublinks.Head}
                                                 </h1>
                                                 {mysublinks.sublink.map((slink) => (
-                                                    <li className="text-sm text-gray-600 my-2.5 font-montserrat">
+                                                    <li key={slink.id}
+                                                        className="text-sm text-gray-600 my-2.5 font-montserrat w-full inset-0 capitalize">
                                                         <Link
                                                             href={slink.path}
                                                             className="hover:text-primary"
@@ -68,7 +68,7 @@ const NavLinks = ({ isHover }) => {
                     <div className={`${heading === link.name ? "md:hidden" : "hidden"}`}>
                         {/* sublinks */}
                         {link.sublinks.map((slinks) => (
-                            <div>
+                            <div key={slinks.id}>
                                 <div>
                                     <h1
                                         onClick={() =>
@@ -89,7 +89,9 @@ const NavLinks = ({ isHover }) => {
                                             }`}
                                     >
                                         {slinks.sublink.map((slink) => (
-                                            <li className="py-3 pl-14">
+                                            <li
+                                                key={slink.id}
+                                                className="py-3 pl-14">
                                                 <Link href={slink.path}>{slink.name}</Link>
                                             </li>
                                         ))}

@@ -16,10 +16,8 @@ import NavLinks from "./NavLinks";
 import Devises from "./DevisesDropdown";
 
 export default function Navbar() {
-
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [open, setOpen] = useState(false);
-
 
     const {
         user,
@@ -95,7 +93,7 @@ export default function Navbar() {
                 </div>
             </div>
 
-            <ul className="text-black font-montserrat font-normal md:flex hidden uppercase items-center justify-center gap-8 pt-14">
+            <ul className="text-black font-montserrat font-normal md:flex hidden uppercase items-center justify-center pt-14">
                 <NavLinks />
             </ul>
 

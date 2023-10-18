@@ -52,7 +52,7 @@ body::-webkit-scrollbar-thumb {
   left: 10%;
   width: 80%;
   height: 0.4rem;
-  background-color: #c0bebe;
+  background-color: #c0bebe9c;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
@@ -60,7 +60,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .link-text:hover {
-  color: #c0bebe;
+  color: #8f8787;
 }
 
 .link-text:hover::before {

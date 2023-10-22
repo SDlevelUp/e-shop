@@ -64,7 +64,7 @@ export default function DevisesDropdown() {
                             <li key={index}>
                                 <a
                                     href="#"
-                                    className="block hover:bg-slate-200"
+                                    className="block hover:bg-[#c0bebe]"
                                 >
                                     {devise}
                                 </a>

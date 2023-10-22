@@ -27,12 +27,6 @@ export default function Home() {
     "/img/sarwel-men.webp",
   ];
 
-  // const customCarouselStyles = {
-  //   ".carousel ": {
-  //     marginTop: "20rem",
-  //   },
-  // };
-
   return (
     <>
       {/* Header and banner */}
@@ -40,7 +34,7 @@ export default function Home() {
         data-header
         id="header"
         className="min-h-screen flex justify-center items-center lg:mt-0 lg:col-span-5 lg:flex bg-[#e7d2d2a5] p-0 bg-banner-texture bg-no-repeat bg-cover">
-        <div className="grid max-w-screen-xl px-4 mx-auto lg:gap-8 py-20 lg:grid-cols-12">
+        <div className="grid max-w-screen-xl px-4 mx-auto lg:gap-8 py-20 mt-48 lg:grid-cols-12">
           <div className="mr-0 place-self-center lg:col-span-7" style={{ position: 'relative', paddingLeft: '1.5rem', paddingTop: '1.5rem' }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 20 20" style={{ position: 'absolute', left: '0', top: '0' }}>
               <line x1="0" y1="0" x2="0" y2="120" stroke="black" strokeWidth="1" />

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -8,10 +9,8 @@ import Cookies from "js-cookie";
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
-
 import SearchBar from "../SearchBar/SearchBar";
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import NavLinks from "./NavLinks";
 import Devises from "./DevisesDropdown";
 
@@ -48,23 +47,28 @@ export default function Navbar() {
     }, [isAuthUser]);
 
     return (
-        <nav className="bg-white md:p-10 p-3">
-            <div className="flex items-center justify-between max-w-screen">
+        <nav className="bg-white md:p-10 md:pb-0 p-3 shadow-2xl z-50 fixed w-full">
+            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
                 <div className="md:flex hidden w-52">
                     <SearchBar />
                 </div>
-                <div onClick={() => setOpen(!open)} className="text-2xl text-black flex md:hidden z-50 cursor-pointer">
-                    {open ? <CloseOutlinedIcon /> : <MenuOutlinedIcon />}
+                <div
+                    onClick={() => setOpen(!open)}
+                    className="text-2xl text-black flex md:hidden cursor-pointer"
+                >
+                    <MenuOutlinedIcon />
                 </div>
                 <div className="text-black flex justify-between text-center text-[20px] md:text-3xl font-semibold">
-                    <h1>
-                        Abayaty
-                    </h1>
+                    <Link href="/">
+                        <h1>
+                            Abayaty
+                        </h1>
+                    </Link>
                 </div>
                 <div className="flex md:order-2">
                     <button
                         onClick={() => router.push('/login')}
-                        className="hover:text-slate-400 transition duration-300 items-center flex text-black ml-6"
+                        className="hover:text-[#c0bebe] transition duration-300 items-center flex text-black ml-6"
                     >
                         <div className="flex flex-col items-center cursor-pointer">
                             <PersonIcon />
@@ -74,7 +78,7 @@ export default function Navbar() {
 
                     <button
                         onClick={() => router.push('/register')}
-                        className="hover:text-slate-400 transition duration-300 items-center flex text-black md:ml-6 ml-4"
+                        className="hover:text-[#c0bebe] transition duration-300 items-center flex text-black md:ml-6 ml-4"
                     >
                         <div className="flex flex-col items-center">
                             <ShoppingBagIcon />
@@ -85,7 +89,7 @@ export default function Navbar() {
                     {isLoggedIn && (
                         <button
                             onClick={() => handleLogout()}
-                            className="text-red-500 transition duration-300 w-9 h-9 justify-center items-center flex"
+                            className="hover:text-[#c0bebe] transition duration-300 w-9 h-9 justify-center items-center flex"
                         >
                             <ExitToAppOutlinedIcon fontSize="medium" />
                         </button>
@@ -93,21 +97,21 @@ export default function Navbar() {
                 </div>
             </div>
 
-            <ul className="text-black font-montserrat font-normal md:flex hidden uppercase items-center justify-center pt-14">
+            <ul className="text-black font-montserrat font-normal md:flex hidden uppercase items-center justify-center pt-14" >
                 <NavLinks />
             </ul>
-
             {/* Mobile nav */}
             <ul
                 className={`
                     md:hidden 
-                    bg-slate-200
-                    text-black
+                    bg-[#7e6666]
+                    text-white
+                    font-semibold
+                    text-[1.2rem]
                     fixed 
-                    w-full 
+                    w-[270px] 
                     top-0 
                     z-10
-                    overflow-y-auto 
                     bottom-0 
                     py-20 
                     pl-4
@@ -117,7 +121,6 @@ export default function Navbar() {
                 <div className="space-y-10 inline-block cursor-pointer">
                     <NavLinks className="inline-block" />
                 </div>
-
             </ul>
         </nav >
     )

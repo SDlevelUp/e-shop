@@ -3,14 +3,8 @@ export const links = [
         "id": 1,
         "name": "Nouveautes",
         "submenu": true,
-        "path": "/homme/qamis-emirati",
-        "sublinks": [
-            {
-                "id": 2,
-                "Head": "Enfant",
-                "sublink": []
-            }
-        ]
+        "path": "/homme/qamis/emirati",
+        "sublinks": []
     },
     {
         "id": 3,
@@ -20,26 +14,32 @@ export const links = [
             {
                 "id": 21,
                 "Head": "T-Shirt oversize",
-                "sublink": []
+                "sublink": [
+
+                    { "id": 522, "name": "Manches mi-longues", "path": "/homme/t-shirt-oversize/manches-mi-longues" },
+                    { "id": 575, "name": "Manches 3/4", "path": "/homme/t-shirt-oversize/manches-3/4" },
+                    { "id": 545, "name": "Col montant", "path": "/homme/t-shirt-oversize/col-montant" },
+                    { "id": 879673, "name": "Col rond", "path": "/homme/t-shirt-oversize/col-rond" },
+                ]
             },
             {
                 "id": 4,
                 "Head": "Qamis",
                 "sublink": [
-                    { "id": 5, "name": "Emirati", "path": "/homme/qamis-emirati" },
-                    { "id": 6, "name": "Saoudien", "path": "/homme/qamis-saoudien" },
-                    { "id": 7, "name": "Omani", "path": "/homme/qamis-omani" },
-                    { "id": 8, "name": "Sultan", "path": "/homme/qamis-sultan" },
+                    { "id": 5, "name": "Emirati", "path": "/homme/qamis/emirati" },
+                    { "id": 6, "name": "Saoudien", "path": "/homme/qamis/saoudien" },
+                    { "id": 7, "name": "Omani", "path": "/homme/qamis/omani" },
+                    { "id": 8, "name": "Sultan", "path": "/homme/qamis/sultan" },
                 ]
             },
             {
                 "id": 9,
                 "Head": "Ensemble",
                 "sublink": [
-                    { "id": 10, "name": "Jabador", "path": "/homme/qamis-emirati" },
-                    { "id": 11, "name": "Casual", "path": "/homme/qamis-emirati" },
-                    { "id": 12, "name": "Sarwels", "path": "/homme/qamis-emirati" },
-                    { "id": 13, "name": "Sportswear", "path": "/homme/qamis-emirati" },
+                    { "id": 10, "name": "Jabador", "path": "/homme/jabador" },
+                    { "id": 11, "name": "Casual", "path": "/homme/casual" },
+                    { "id": 12, "name": "Sarwels", "path": "/homme/sarwels" },
+                    { "id": 13, "name": "Sportswear", "path": "/homme/sportswear" },
                 ]
             },
 
@@ -47,18 +47,18 @@ export const links = [
     },
     {
         "id": 33,
-        "name": "Femme",
+        "name": "Femmes",
         "submenu": true,
         "sublinks": [
             {
                 "id": 46,
                 "Head": "Abaya",
                 "sublink": [
-                    { "id": 47, "name": "Abaya saoudienne", "path": "/femme/abaya-saoudienne" },
-                    { "id": 48, "name": "Abaya allaitement", "path": "/femme/abaya-allaitement" },
-                    { "id": 49, "name": "Abaya papillon", "path": "/femme/abaya-papillon" },
-                    { "id": 50, "name": "Abaya manches bouffantes", "path": "/femme/abaya-manches-bouffantes" },
-                    { "id": 51, "name": "Abaya manches évasées", "path": "/femme/abaya-manches-evasees" }
+                    { "id": 47, "name": "Abaya saoudienne", "path": "/femme/abaya/saoudienne" },
+                    { "id": 48, "name": "Abaya allaitement", "path": "/femme/abaya/allaitement" },
+                    { "id": 49, "name": "Abaya papillon", "path": "/femme/abaya/papillon" },
+                    { "id": 50, "name": "Abaya manches bouffantes", "path": "/femme/abaya/manches-bouffantes" },
+                    { "id": 51, "name": "Abaya manches évasées", "path": "/femme/abaya/manches-evasees" }
                 ]
             },
             {
@@ -75,10 +75,10 @@ export const links = [
                 "id": 58,
                 "Head": "Khimars - Cape",
                 "sublink": [
-                    { "id": 60, "name": "Khimar jazz", "path": "/homme/qamis-emirati" },
-                    { "id": 61, "name": "Khimar un voile", "path": "/homme/qamis-emirati" },
-                    { "id": 59, "name": "Khimar soie de médine", "path": "/homme/qamis-emirati" },
-                    { "id": 63, "name": "Cape nidah", "path": "/homme/qamis-emirati" }
+                    { "id": 60, "name": "Khimar jazz", "path": "/homme/khimar-jazz" },
+                    { "id": 61, "name": "Khimar un voile", "path": "/homme/khimar-un-voile" },
+                    { "id": 59, "name": "Khimar soie de médine", "path": "/homme/khimar-soie-de-medine" },
+                    { "id": 63, "name": "Cape nidah", "path": "/homme/cape/nidah" }
                 ]
             }
         ]
@@ -89,31 +89,14 @@ export const links = [
         "submenu": true,
         "sublinks": [
             {
-                "id": 71,
-                "Head": "Livres&Jeux educatifs",
-                "sublink": []
-            },
-            {
-                "id": 65,
-                "Head": "Ensemble",
+                "id": 787,
+                "Head": "Jeux",
                 "sublink": [
-                    { "id": 66, "name": "Qamis&Sarwel", "path": "/homme/qamis-emirati" },
-                    { "id": 67, "name": "Casual shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 68, "name": "formal shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 69, "name": "formal shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 70, "name": "formal shirts", "path": "/homme/qamis-emirati" }
-                ]
-            },
-
-            {
-                "id": 77,
-                "Head": "Pyjamas",
-                "sublink": [
-                    { "id": 78, "name": "Pyjamas deux pièces", "path": "/homme/qamis-emirati" },
-                    { "id": 79, "name": "Casual shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 80, "name": "formal shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 81, "name": "formal shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 82, "name": "formal shirts", "path": "/homme/qamis-emirati" }
+                    {
+                        "id": 97375,
+                        "name": "Puzzle",
+                        "path": "/enfants/jeux/puzzle"
+                    }
                 ]
             },
         ]
@@ -132,41 +115,27 @@ export const links = [
                 "id": 99,
                 "Head": "Parfums de niche",
                 "sublink": [
-                    { "id": 100, "name": "Oud", "path": "/homme/qamis-emirati" },
-                    { "id": 104, "name": "Arabi", "path": "/homme/qamis-emirati" },
-                    { "id": 102, "name": "formal shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 103, "name": "formal shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 104, "name": "formal shirts", "path": "/homme/qamis-emirati" }
+                    { "id": 100, "name": "Oud", "path": "/parfums-de-niche/oud" },
+                    { "id": 104, "name": "Arabi", "path": "/parfums-de-niche/arabi" },
+                    { "id": 102, "name": "Ahmed Al Maghribi", "path": "/parfums-de-niche/ahmed-al-maghribi" },
+                    { "id": 103, "name": "Black Forest Al Ambra", "path": "/parfums-de-niche/black-forest-al-ambra" },
+                    { "id": 145, "name": "Coffret à offrir", "path": "/parfums/coffrets" }
                 ]
             },
         ]
     },
     {
         "id": 83,
-        "name": "Accessoires",
+        "name": "Bonbons halal",
         "submenu": true,
         "sublinks": [
             {
-                "id": 85,
-                "Head": "Ensemble",
+                "id": 99,
+                "Head": false,
                 "sublink": [
-                    { "id": 86, "name": "Qamis&Sarwel", "path": "/homme/qamis-emirati" },
-                    { "id": 87, "name": "Casual shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 88, "name": "formal shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 89, "name": "formal shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 90, "name": "formal shirts", "path": "/homme/qamis-emirati" }
-                ]
-            },
-
-            {
-                "id": 91,
-                "Head": "Pyjamas",
-                "sublink": [
-                    { "id": 92, "name": "Pyjamas deux pièces", "path": "/homme/qamis-emirati" },
-                    { "id": 93, "name": "Casual shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 94, "name": "formal shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 95, "name": "formal shirts", "path": "/homme/qamis-emirati" },
-                    { "id": 96, "name": "formal shirts", "path": "/homme/qamis-emirati" }
+                    { "id": 400005, "name": "Bonbons vegan", "path": "/bonbons/bonbons-vegan" },
+                    { "id": 40000, "name": "Bonbons en kilo", "path": "/bonbons-en-vrac" },
+                    { "id": 40001, "name": "Sachet aïd", "path": "/bonbons/sachet-aïd" },
                 ]
             },
         ]

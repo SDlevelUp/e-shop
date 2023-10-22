@@ -25,17 +25,25 @@ export default function SearchBar() {
 
     return (
         <div className="relative">
-            <div className="flex items-center bg-[#c0bebe] rounded-full p-2">
+            <div className="flex justify-center items-center bg-[#c0bebe] rounded-full p-2">
                 <input
-                    type="text"
+                    type="search"
                     placeholder="Rechercher ..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    className={`p-0 rounded-full bg-transparent focus:outline-none transition-all duration-300 ${expanded ? "w-52" : "w-0"
-                        }`}
+                    className=
+                    {`
+                        p-0 
+                        bg-transparent 
+                        focus:outline-none 
+                        transition-all 
+                        duration-300 
+                        ${expanded ? "w-52" : "w-0"
+                        }`
+                    }
                 />
-                <button className="flex items-center justify-center text-black" onClick={handleClick}>
+                <button className="flex justify-center items-center text-black" onClick={handleClick}>
                     <SearchIcon />
                 </button>
             </div>

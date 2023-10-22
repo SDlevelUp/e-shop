@@ -39,10 +39,10 @@ export default function RootLayout({ children }) {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>
-      <body className={`${roboto.variable} ${lato.variable} ${montserrat.variable} font-montserrat text-black-global bg-without-white`}>
+      <body className={`${roboto.variable} ${lato.variable} ${montserrat.variable} font-montserrat text-black-global`}>
         <GlobalState>
           <Navbar />
-          <main className='flex min-h-screen flex-col mt-0'>
+          <main className='flex min-h-screen flex-col'>
             {children}
           </main>
           <Footer />

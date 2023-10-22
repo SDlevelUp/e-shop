@@ -4,7 +4,7 @@ import Link from 'next/link';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const NavLinks = ({ isHover }) => {
+export default function NavLinks({ isHover }) {
     const [heading, setHeading] = useState("");
     const [subHeading, setSubHeading] = useState("");
 
@@ -12,9 +12,9 @@ const NavLinks = ({ isHover }) => {
         <>
             {links.map((link) => (
                 <div key={link.id}>
-                    <div className="px-3 text-left md:cursor-pointer group link-text">
+                    <div className="px-3 text-left group link-text md:py-5">
                         <h1
-                            className="flex justify-between items-center md:pr-0 group font-montserrat"
+                            className="flex justify-between items-center md:pr-0 group cursor-pointer text-white md:text-black"
                             onClick={() => {
                                 heading !== link.name ? setHeading(link.name) : setHeading("");
                                 setSubHeading("");
@@ -26,7 +26,7 @@ const NavLinks = ({ isHover }) => {
                             <div key={link.id}>
                                 <div className={`
                                         fixed
-                                        top-[213px]
+                                        top-[204px]
                                         hidden
                                         group-hover:md:block
                                         hover:md:block
@@ -35,11 +35,10 @@ const NavLinks = ({ isHover }) => {
                                         bg-black 
                                         bg-opacity-50 
                                         backdrop-blur-sm
-                                        transition-all
-                                        duration-1000
                                         ${isHover ? 'opacity-100' : 'opacity-1'}
-                                    `}>
-                                    <div className="p-5 flex flex-wrap space-x-10 font-montserrat bg-without-white w-full">
+                                    `}
+                                >
+                                    <div className="p-5 flex flex-wrap space-x-10 font-montserrat bg-without-white w-full cursor-pointer">
                                         {link.sublinks.map((mysublinks) => (
                                             <div key={mysublinks.id}
                                                 className="text-lg font-semibold ">
@@ -48,11 +47,8 @@ const NavLinks = ({ isHover }) => {
                                                 </h1>
                                                 {mysublinks.sublink.map((slink) => (
                                                     <li key={slink.id}
-                                                        className="text-sm text-gray-600 my-2.5 font-montserrat w-full inset-0 capitalize">
-                                                        <Link
-                                                            href={slink.path}
-                                                            className="hover:text-primary"
-                                                        >
+                                                        className="text-sm text-gray-600 my-2.5 font-montserrat w-full inset-0 normal-case">
+                                                        <Link href={slink.path}>
                                                             {slink.name}
                                                         </Link>
                                                     </li>
@@ -76,11 +72,10 @@ const NavLinks = ({ isHover }) => {
                                                 ? setSubHeading(slinks.Head)
                                                 : setSubHeading("")
                                         }
-                                        className="py-4 pl-7 font-semibold flex justify-between items-center md:pr-0 pr-5"
+                                        className="py-4 font-semibold flex justify-between items-center md:pr-0 pr-5"
                                     >
                                         {slinks.Head}
-
-                                        <span className="text-xl md:mt-1 md:ml-2 inline">
+                                        <span className="absolute w-[3rem] text-[2rem] h-[1.55rem] text-center z-8 right-0 leading-[1.55rem]">
                                             {subHeading === slinks.Head ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                                         </span>
                                     </h1>
@@ -91,7 +86,7 @@ const NavLinks = ({ isHover }) => {
                                         {slinks.sublink.map((slink) => (
                                             <li
                                                 key={slink.id}
-                                                className="py-3 pl-14">
+                                                className="py-3 pl-8 -ml-[1rem]">
                                                 <Link href={slink.path}>{slink.name}</Link>
                                             </li>
                                         ))}
@@ -105,5 +100,3 @@ const NavLinks = ({ isHover }) => {
         </>
     );
 };
-
-export default NavLinks;

@@ -1,46 +1,33 @@
 "use client";
-
+import React, { useContext, useState, useEffect } from "react";
 import Link from "next/link";
-import { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import { GlobalContext } from "@/context";
 import Cookies from "js-cookie";
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
-import SearchBar from "../SearchBar/SearchBar";
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-import NavLinks from "./NavLinks";
+import SearchBar from "../SearchBar";
 import Devises from "./DevisesDropdown";
+import NavLinks from "./NavLinks";
+import { GlobalContext } from "@/context";
+import CartModal from "../Cart/CartModal";
 
-export default function Navbar() {
+const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [open, setOpen] = useState(false);
-
-    const {
-        user,
-        setUser,
-        isAuthUser,
-        setIsAuthUser,
-
-    } = useContext(GlobalContext);
-
+    const { isAuthUser, setIsAuthUser, showCartModal, setShowCartModal } = useContext(GlobalContext);
     const router = useRouter();
 
-    async function handleLogout() {
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-
+    const handleLogout = async () => {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         setIsAuthUser(false);
-        setUser(null);
         Cookies.remove("token");
         localStorage.clear();
         router.push("/");
-
         toast.success('Déconnexion réussie !');
-    }
-
-    console.log(user, isAuthUser, 'navbar');
+    };
 
     useEffect(() => {
         setIsLoggedIn(isAuthUser);
@@ -49,7 +36,7 @@ export default function Navbar() {
     return (
         <nav className="bg-white md:p-10 md:pb-0 p-3 shadow-2xl z-50 fixed w-full">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-                <div className="md:flex hidden w-52">
+                <div className="md:flex hidden w-[260px]">
                     <SearchBar />
                 </div>
                 <div
@@ -77,7 +64,7 @@ export default function Navbar() {
                     </button>
 
                     <button
-                        onClick={() => router.push('/register')}
+                        onClick={() => setShowCartModal(true)}
                         className="hover:text-[#c0bebe] transition duration-300 items-center flex text-black md:ml-6 ml-4"
                     >
                         <div className="flex flex-col items-center">
@@ -88,7 +75,7 @@ export default function Navbar() {
                     <Devises />
                     {isLoggedIn && (
                         <button
-                            onClick={() => handleLogout()}
+                            onClick={handleLogout}
                             className="hover:text-[#c0bebe] transition duration-300 w-9 h-9 justify-center items-center flex"
                         >
                             <ExitToAppOutlinedIcon fontSize="medium" />
@@ -107,7 +94,7 @@ export default function Navbar() {
                     bg-[#7e6666]
                     text-white
                     font-semibold
-                    text-[1.2rem]
+                    text-[16px]
                     fixed 
                     w-[270px] 
                     top-0 
@@ -116,12 +103,23 @@ export default function Navbar() {
                     py-20 
                     pl-4
                     duration-500 ${open ? "left-0" : "left-[-100%]"}
-        `}
+                `}
             >
                 <div className="space-y-10 inline-block cursor-pointer">
-                    <NavLinks className="inline-block" />
+                    <NavLinks
+
+                        className="inline-block"
+
+
+
+
+
+                    />
+                    {showCartModal && <CartModal />}
                 </div>
             </ul>
-        </nav >
-    )
+        </nav>
+    );
 };
+
+export default Navbar;

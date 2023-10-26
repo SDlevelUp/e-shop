@@ -5,11 +5,10 @@ import { createContext, useState, useEffect } from 'react';
 export const GlobalContext = createContext(null);
 
 export default function GlobalState({ children }) {
-  
+
     const [isAuthUser, setIsAuthUser] = useState(null);
     const [user, setUser] = useState(null);
-   
-
+    const [showCartModal, setShowCartModal] = useState(false);
     const [cookiesExist, setCookiesExist] = useState(Cookies.get("token") !== undefined);
 
     useEffect(() => {
@@ -30,6 +29,8 @@ export default function GlobalState({ children }) {
             setIsAuthUser,
             user,
             setUser,
+            showCartModal,
+            setShowCartModal,
         }}
         >
             {children}

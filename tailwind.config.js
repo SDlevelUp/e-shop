@@ -9,7 +9,6 @@ module.exports = {
     extend: {
       screens: {
         '3xl': '2560px',
-        'tablet': '768px'
       },
       fontFamily: {
         lato: ['var(--font-lato)'],

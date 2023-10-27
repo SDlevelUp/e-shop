@@ -42,7 +42,7 @@ body::-webkit-scrollbar-thumb {
   display: inline-block;
   z-index: 1;
   color: #000000;
-  transition: color 0.3s ease;
+  transition: color 1s ease;
 }
 
 .link-text::before {
@@ -94,4 +94,3 @@ input::placeholder {
   transition: transform 0.3s ease-in-out;
   /* Ajoute une transition pour une animation en douceur */
 }
-

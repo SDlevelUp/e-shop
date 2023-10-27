@@ -55,7 +55,7 @@ const Navbar = () => {
                 <div className="flex md:order-2">
                     <button
                         onClick={() => router.push('/login')}
-                        className="hover:text-[#c0bebe] transition duration-300 items-center flex text-black ml-6"
+                        className="hover:text-[#c0bebe] transition duration-300 items-center flex text-black"
                     >
                         <div className="flex flex-col items-center cursor-pointer">
                             <PersonIcon />
@@ -65,7 +65,7 @@ const Navbar = () => {
 
                     <button
                         onClick={() => setShowCartModal(true)}
-                        className="hover:text-[#c0bebe] transition duration-300 items-center flex text-black md:ml-6 ml-4"
+                        className="hover:text-[#c0bebe] transition duration-300 items-center flex text-black md:ml-4"
                     >
                         <div className="flex flex-col items-center">
                             <ShoppingBagIcon />
@@ -84,7 +84,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <ul className="text-black font-montserrat font-normal md:flex hidden uppercase items-center justify-center pt-14" >
+            <ul className="text-black font-montserrat font-normal md:flex hidden uppercase items-center justify-center lg:pt-14 md:pt-9 whitespace-nowrap" >
                 <NavLinks />
             </ul>
             {/* Mobile nav */}

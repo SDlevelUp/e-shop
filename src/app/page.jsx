@@ -34,7 +34,7 @@ export default function Home() {
         data-header
         id="header"
         className="min-h-screen flex justify-center items-center lg:mt-0 lg:col-span-5 lg:flex bg-[#e7d2d2a5] p-0 bg-banner-texture bg-no-repeat bg-cover">
-        <div className="grid max-w-screen-xl px-4 mx-auto lg:gap-8 py-20 mt-48 lg:grid-cols-12">
+        <div className="grid max-w-screen-xl px-4 mx-auto lg:gap-8 py-20 mt-0 md:mt-40 lg:grid-cols-12">
           <div className="mr-0 place-self-center lg:col-span-7" style={{ position: 'relative', paddingLeft: '1.5rem', paddingTop: '1.5rem' }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 20 20" style={{ position: 'absolute', left: '0', top: '0' }}>
               <line x1="0" y1="0" x2="0" y2="120" stroke="black" strokeWidth="1" />
@@ -56,7 +56,7 @@ export default function Home() {
             </button>
           </div>
           <div className="lg:mt-0 lg:col-span-5 lg:flex relative">
-            <div className="xl:w-full lg:h-full bg-black opacity-10 pb-[10%] top-[65%] left-[65%] absolute transform -translate-x-1/2 -translate-y-1/2 -mt-12 -ml-12 shadow-md"></div>
+            <div className="w-full h-full bg-black opacity-10 pb-[10%] top-[65%] left-[65%] absolute transform -translate-x-1/2 -translate-y-1/2 -mt-14 -ml-14 shadow-md"></div>
             <Carousel
               showArrows={false}
               showThumbs={false}

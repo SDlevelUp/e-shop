@@ -12,7 +12,7 @@ export default function NavLinks({ isHover }) {
         <>
             {links.map((link) => (
                 <div key={link.id}>
-                    <div className="px-3 text-left group link-text md:py-5">
+                    <div className="px-3 text-left group link-text md:py-5 ">
                         <h1
                             className="flex justify-between items-center md:pr-0 group cursor-pointer text-white md:text-black"
                             onClick={() => {
@@ -26,7 +26,8 @@ export default function NavLinks({ isHover }) {
                             <div key={link.id}>
                                 <div className={`
                                         fixed
-                                        top-[204px]
+                                        lg:top-[204px]
+                                        md:top-44
                                         hidden
                                         group-hover:md:block
                                         hover:md:block
@@ -41,7 +42,7 @@ export default function NavLinks({ isHover }) {
                                     <div className="p-5 flex flex-wrap space-x-10 font-montserrat bg-without-white w-full cursor-pointer">
                                         {link.sublinks.map((mysublinks) => (
                                             <div key={mysublinks.id}>
-                                                <h1>
+                                                <h1 className="font-semibold">
                                                     {mysublinks.Head}
                                                 </h1>
                                                 {mysublinks.sublink.map((slink) => (

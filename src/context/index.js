@@ -9,19 +9,18 @@ export default function GlobalState({ children }) {
     const [isAuthUser, setIsAuthUser] = useState(null);
     const [user, setUser] = useState(null);
     const [showCartModal, setShowCartModal] = useState(false);
-    const [cookiesExist, setCookiesExist] = useState(Cookies.get("token") !== undefined);
+
 
     useEffect(() => {
-        if (cookiesExist) {
-            console.log("Token récupéré avec succès:", Cookies.get("token"));
+        if (Cookies.get("token") !== undefined) {
             setIsAuthUser(true);
-            const userData = JSON.parse(localStorage.getItem('user')) || {};
+            const userData = JSON.parse(localStorage.getItem("user")) || {};
             setUser(userData);
         } else {
             setIsAuthUser(false);
-            setUser({});
+            setUser({}); 
         }
-    }, [cookiesExist]);
+    }, [Cookies]);
 
     return (
         <GlobalContext.Provider value={{
@@ -31,6 +30,7 @@ export default function GlobalState({ children }) {
             setUser,
             showCartModal,
             setShowCartModal,
+
         }}
         >
             {children}
